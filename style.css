@@ -57,27 +57,84 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(0);
 }
 
-/* Timeline Styling */
-.timeline-item {
+/* New Experience Tabs Styles */
+.experience-tabs-container {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .experience-tabs-container {
+        flex-direction: row;
+    }
+}
+
+.experience-tabs-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    margin-bottom: 1rem;
     position: relative;
-    padding-left: 2.5rem;
-    padding-bottom: 2rem;
-    border-left: 2px solid #233554;
 }
 
-.timeline-item:last-child {
-    border-left: 2px solid transparent;
+@media (min-width: 768px) {
+    .experience-tabs-list {
+        flex-direction: column;
+        overflow-x: visible;
+        margin-bottom: 0;
+        margin-right: 1.5rem;
+    }
 }
 
-.timeline-dot {
-    position: absolute;
-    left: -9px; /* Adjust to center the dot on the line */
-    top: 0;
-    height: 1rem;
-    width: 1rem;
-    background-color: #64ffda;
-    border-radius: 50%;
-    border: 2px solid #0a192f;
+.experience-tab {
+    padding: 0.75rem 1rem;
+    border: 2px solid transparent;
+    border-bottom: 2px solid #233554;
+    color: #8892b0;
+    background: none;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .experience-tab {
+        border-bottom: none;
+        border-left: 2px solid #233554;
+    }
+}
+
+.experience-tab:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    color: #64ffda;
+}
+
+.experience-tab.active {
+    color: #64ffda;
+    background-color: rgba(100, 255, 218, 0.1);
+    border-color: #64ffda;
+}
+
+.experience-panels {
+    min-height: 300px;
+}
+
+.experience-panel {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    animation: fadeInPanel 0.5s ease-in-out;
+}
+
+@keyframes fadeInPanel {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.experience-panel ul {
+    padding-left: 1rem;
 }
 
 /* Button Styling */
