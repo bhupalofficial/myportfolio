@@ -117,57 +117,60 @@
                 Where I've Worked
                 <span class="h-px bg-gray-600 flex-grow ml-4"></span>
             </h2>
-            <div class="relative">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <h3 class="text-xl font-semibold text-gray-100">Documentation Department Head</h3>
-                    <p class="text-accent mb-2">ASIALINK SERVICES PVT. LTD. | <span class="text-gray-400">April 2025 - Present</span></p>
-                    <ul class="list-disc list-inside text-gray-400 space-y-2">
-                        <li>Leading and mentoring a team of 5 documentation specialists.</li>
-                        <li>Overseeing the creation and management of all client-facing and internal documentation.</li>
-                        <li>Developing and implementing new strategies to improve workflow efficiency and accuracy.</li>
-                    </ul>
+            <div class="experience-tabs-container mx-auto max-w-4xl fade-in">
+                <div class="experience-tabs-list" role="tablist" aria-label="Job History">
+                    <button id="tab-asialink" role="tab" class="experience-tab active" aria-selected="true" aria-controls="panel-asialink">ASIALINK</button>
+                    <button id="tab-nctf" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-nctf">NCTF</button>
+                    <button id="tab-future" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-future">Future Employment</button>
+                    <button id="tab-focus" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-focus">Focus Nepal</button>
+                    <button id="tab-community" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-community">Community e-Center</button>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <h3 class="text-xl font-semibold text-gray-100">IT Officer</h3>
-                    <p class="text-accent mb-2">Nepal Career Training Foundation Pvt. Ltd. | <span class="text-gray-400">April 2021 - Nov 2023</span></p>
-                    <ul class="list-disc list-inside text-gray-400 space-y-2">
-                        <li>Managed and enhanced key training databases including EVENT-II, SAMRIDDHI, NSTB, and FEB TMIS.</li>
-                        <li>Organized, updated, and stored documents for efficient information retrieval.</li>
-                        <li>Provided comprehensive technical support to all employees, ensuring smooth operations.</li>
-                        <li>Performed routine data backups and recovery to safeguard critical information.</li>
-                    </ul>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <h3 class="text-xl font-semibold text-gray-100">Public Relation Officer</h3>
-                    <p class="text-accent mb-2">Future Employment Service Pvt. Ltd. | <span class="text-gray-400">Aug 2019 - Mar 2020</span></p>
-                    <ul class="list-disc list-inside text-gray-400 space-y-2">
-                        <li>Cultivated a positive public image for the company through strategic communication.</li>
-                        <li>Built and maintained strong relationships with clients, job seekers, and stakeholders.</li>
-                        <li>Organized recruitment events and client engagement activities.</li>
-                    </ul>
-                </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <h3 class="text-xl font-semibold text-gray-100">Computer Operator</h3>
-                    <p class="text-accent mb-2">Focus Nepal Overseas Pvt. Ltd. | <span class="text-gray-400">July 2016 - July 2019</span></p>
-                    <ul class="list-disc list-inside text-gray-400 space-y-2">
-                        <li>Managed client passport handling and maintained meticulous records.</li>
-                        <li>Handled daily office email correspondence and client document processing.</li>
-                        <li>Collaborated with senior officers on document forwarding and processing strategies.</li>
-                    </ul>
-                </div>
-                 <div class="timeline-item fade-in">
-                    <div class="timeline-dot"></div>
-                    <h3 class="text-xl font-semibold text-gray-100">Computer Trainer</h3>
-                    <p class="text-accent mb-2">Community e-Center Jhapa | <span class="text-gray-400">Jan 2015 - Mar 2016</span></p>
-                    <ul class="list-disc list-inside text-gray-400 space-y-2">
-                        <li>Developed and delivered lesson plans based on course objectives.</li>
-                        <li>Utilized Microsoft Office and e-Learning tools for effective training delivery.</li>
-                        <li>Consistently received positive evaluations from students for clear and concise instruction.</li>
-                    </ul>
+
+                <div class="experience-panels">
+                    <div id="panel-asialink" class="experience-panel active" role="tabpanel" tabindex="0" aria-labelledby="tab-asialink">
+                        <h3 class="text-xl font-semibold text-gray-100">Documentation Department Head <span class="text-accent">@ ASIALINK SERVICES PVT. LTD.</span></h3>
+                        <p class="text-gray-400 mb-4 text-sm">April 2025 - Present</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Leading and mentoring a team of 5 documentation specialists to ensure high-quality output and professional growth.</li>
+                            <li>Overseeing the creation, review, and management of all client-facing and internal documentation.</li>
+                            <li>Developing and implementing new strategies and workflows to improve departmental efficiency and accuracy.</li>
+                        </ul>
+                    </div>
+                    <div id="panel-nctf" class="experience-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-nctf" hidden>
+                        <h3 class="text-xl font-semibold text-gray-100">IT Officer <span class="text-accent">@ Nepal Career Training Foundation</span></h3>
+                        <p class="text-gray-400 mb-4 text-sm">April 2021 - Nov 2023</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Managed and enhanced key training databases including EVENT-II, SAMRIDDHI, NSTB, and FEB TMIS.</li>
+                            <li>Organized, updated, and stored documents for efficient information retrieval across departments.</li>
+                            <li>Provided comprehensive technical support to all employees, ensuring smooth daily operations.</li>
+                        </ul>
+                    </div>
+                    <div id="panel-future" class="experience-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-future" hidden>
+                        <h3 class="text-xl font-semibold text-gray-100">Public Relation Officer <span class="text-accent">@ Future Employment Service</span></h3>
+                        <p class="text-gray-400 mb-4 text-sm">Aug 2019 - Mar 2020</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Cultivated a positive public image for the company through strategic communication and media outreach.</li>
+                            <li>Built and maintained strong, lasting relationships with clients, job seekers, and key industry stakeholders.</li>
+                            <li>Organized successful recruitment events and client engagement activities to boost company profile.</li>
+                        </ul>
+                    </div>
+                    <div id="panel-focus" class="experience-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-focus" hidden>
+                        <h3 class="text-xl font-semibold text-gray-100">Computer Operator <span class="text-accent">@ Focus Nepal Overseas</span></h3>
+                        <p class="text-gray-400 mb-4 text-sm">July 2016 - July 2019</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Managed client passport handling and maintained meticulous, confidential records with 100% accuracy.</li>
+                            <li>Handled daily office email correspondence and the processing of sensitive client documents.</li>
+                        </ul>
+                    </div>
+                    <div id="panel-community" class="experience-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-community" hidden>
+                        <h3 class="text-xl font-semibold text-gray-100">Computer Trainer <span class="text-accent">@ Community e-Center Jhapa</span></h3>
+                        <p class="text-gray-400 mb-4 text-sm">Jan 2015 - Mar 2016</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Developed and delivered engaging lesson plans based on course objectives and student needs.</li>
+                            <li>Utilized Microsoft Office and e-Learning tools to provide effective, hands-on training delivery.</li>
+                            <li>Consistently received positive evaluations from students for clear, concise, and patient instruction.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
