@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- Scroll Animations ---
-    const faders = document.querySelectorAll('.fade-.in');
+    const faders = document.querySelectorAll('.fade-in');
     const appearOptions = {
         threshold: 0.2, // Trigger when 20% of the element is visible
         rootMargin: "0px 0px -50px 0px" // Start animating a bit before it's fully in view
@@ -63,4 +63,5 @@ document.addEventListener('DOMContentLoaded', function() {
         appearOnScroll.observe(fader);
     });
 });
+
 
