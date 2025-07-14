@@ -160,7 +160,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-shrink: 0;
     width: 64px;
     height: 64px;
-    border-radius: 0.5rem; /* Changed to square */
+    border-radius: 0.5rem; /* Square shape */
     overflow: hidden;
     border: 4px solid #64ffda;
     background: #0a192f;
