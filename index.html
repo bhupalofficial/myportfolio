@@ -18,15 +18,25 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header for Mobile View -->
+    <!-- Header for All Views -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-card mx-2 mt-2 md:mx-4 md:mt-4">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-bold text-accent">BB</a>
+                    <a href="#hero" class="text-2xl font-bold text-accent">BB</a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#hero" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#experience" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                        <a href="#skills" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#contact" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    </div>
                 </div>
                 <!-- Mobile menu button -->
-                <div class="-mr-2 flex">
+                <div class="-mr-2 flex md:hidden">
                     <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                         <span class="sr-only">Open main menu</span>
                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -40,7 +50,7 @@
             </div>
         </div>
         <!-- Mobile menu, show/hide based on menu state. -->
-        <div id="mobile-menu" class="hidden transform -translate-y-full">
+        <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#hero" class="text-gray-300 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">Home</a>
                 <a href="#about" class="text-gray-300 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">About</a>
@@ -50,23 +60,12 @@
             </div>
         </div>
     </header>
-
-    <!-- Side Navigation for Desktop View -->
-    <nav class="side-nav">
-        <ul>
-            <li><a href="#hero" data-nav="hero" class="active" aria-label="Go to Home section"></a></li>
-            <li><a href="#about" data-nav="about" aria-label="Go to About section"></a></li>
-            <li><a href="#experience" data-nav="experience" aria-label="Go to Experience section"></a></li>
-            <li><a href="#skills" data-nav="skills" aria-label="Go to Skills section"></a></li>
-            <li><a href="#contact" data-nav="contact" aria-label="Go to Contact section"></a></li>
-        </ul>
-    </nav>
     
-    <!-- Main Scrolling Container -->
-    <div class="fullscreen-container">
+    <!-- Main Content -->
+    <main class="pt-24">
         <!-- Hero Section -->
-        <section id="hero" class="fullscreen-section">
-            <div class="content-wrapper text-center">
+        <section id="hero" class="min-h-screen flex items-center justify-center text-center px-4">
+            <div class="content-wrapper">
                 <p class="text-accent text-lg mb-4 fade-in" style="transition-delay: 100ms;">Hi, I am</p>
                 <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold text-gray-100 fade-in" style="transition-delay: 200ms;">Bhupal Bhattarai.</h1>
                 <p class="mt-6 max-w-xl mx-auto text-lg text-gray-400 fade-in" style="transition-delay: 400ms;">
@@ -86,15 +85,15 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="fullscreen-section">
-            <div class="content-wrapper">
-                <h2 class="text-3xl font-bold mb-12 flex items-center">About Me<span class="h-px bg-gray-600 flex-grow ml-4"></span></h2>
+        <section id="about" class="py-20 lg:py-32 px-4">
+            <div class="content-wrapper mx-auto">
+                <h2 class="text-3xl font-bold mb-12 flex items-center fade-in">About Me<span class="h-px bg-gray-600 flex-grow ml-4"></span></h2>
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
-                    <div class="md:col-span-3 text-gray-400 text-lg space-y-4">
+                    <div class="md:col-span-3 text-gray-400 text-lg space-y-4 fade-in">
                         <p>Hello! I'm Bhupal, a dedicated and trustworthy professional with a strong foundation in IT and a knack for organization. My journey into the tech world began in 2015 with a diploma in computer hardware, which sparked a long-standing passion for technology.</p>
                         <p>I enjoy taking on challenges and am eager to learn and take the lead. My goal is to leverage my skills to foster career growth while contributing significantly to a company's success. I am a friendly, team-oriented individual who brings both innovation and technical know-how to the table.</p>
                     </div>
-                    <div class="md:col-span-2 flex justify-center items-center">
+                    <div class="md:col-span-2 flex justify-center items-center fade-in">
                         <div class="w-64 h-64 relative group">
                             <div class="absolute inset-0 bg-accent rounded-lg transform rotate-6 group-hover:rotate-3 transition-transform duration-300"></div>
                             <img src="Image/photo.png" alt="Bhupal Bhattarai" class="relative w-full h-full object-cover rounded-lg shadow-lg" onerror="this.onerror=null;this.src='https://placehold.co/300x300/e2e8f0/2d3748?text=Image+Not+Found';">
@@ -105,10 +104,10 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="fullscreen-section">
-            <div class="content-wrapper">
-                <h2 class="text-3xl font-bold mb-12 flex items-center">Where I've Worked<span class="h-px bg-gray-600 flex-grow ml-4"></span></h2>
-                <div class="experience-tabs-container mx-auto">
+        <section id="experience" class="py-20 lg:py-32 px-4">
+            <div class="content-wrapper mx-auto">
+                <h2 class="text-3xl font-bold mb-12 flex items-center fade-in">Where I've Worked<span class="h-px bg-gray-600 flex-grow ml-4"></span></h2>
+                <div class="experience-tabs-container mx-auto fade-in">
                     <div class="experience-tabs-list" role="tablist" aria-label="Job History">
                         <button id="tab-asialink" role="tab" class="experience-tab active" aria-selected="true" aria-controls="panel-asialink">ASIALINK</button>
                         <button id="tab-nctf" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-nctf">NCTF</button>
@@ -128,38 +127,47 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="fullscreen-section">
-            <div class="content-wrapper text-center">
-                <h2 class="text-3xl font-bold mb-12">Skills & Strengths</h2>
+        <section id="skills" class="py-20 lg:py-32 bg-[#112240] px-4">
+            <div class="content-wrapper mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-12 fade-in">Skills & Strengths</h2>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                    <div class="glass-card p-6"><p>Customer Service</p></div>
-                    <div class="glass-card p-6"><p>Communication</p></div>
-                    <div class="glass-card p-6"><p>Teamwork</p></div>
-                    <div class="glass-card p-6"><p>Problem Solving</p></div>
-                    <div class="glass-card p-6"><p>Adaptability</p></div>
-                    <div class="glass-card p-6"><p>E-mail & Internet</p></div>
-                    <div class="glass-card p-6"><p>Data Management</p></div>
-                    <div class="glass-card p-6"><p>Technical Support</p></div>
-                    <div class="glass-card p-6"><p>Public Speaking</p></div>
-                    <div class="glass-card p-6"><p>Self-Motivated</p></div>
+                    <div class="glass-card p-6 fade-in"><p>Customer Service</p></div>
+                    <div class="glass-card p-6 fade-in"><p>Communication</p></div>
+                    <div class="glass-card p-6 fade-in"><p>Teamwork</p></div>
+                    <div class="glass-card p-6 fade-in"><p>Problem Solving</p></div>
+                    <div class="glass-card p-6 fade-in"><p>Adaptability</p></div>
+                    <div class="glass-card p-6 fade-in"><p>E-mail & Internet</p></div>
+                    <div class="glass-card p-6 fade-in"><p>Data Management</p></div>
+                    <div class="glass-card p-6 fade-in"><p>Technical Support</p></div>
+                    <div class="glass-card p-6 fade-in"><p>Public Speaking</p></div>
+                    <div class="glass-card p-6 fade-in"><p>Self-Motivated</p></div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="fullscreen-section">
-            <div class="content-wrapper text-center">
-                 <h2 class="text-2xl font-bold text-accent">What's Next?</h2>
-                 <h3 class="text-4xl md:text-5xl font-bold mt-4 text-gray-100">Get In Touch</h3>
-                 <p class="mt-6 max-w-xl mx-auto text-lg text-gray-400">
+        <section id="contact" class="py-20 lg:py-32 px-4">
+            <div class="content-wrapper mx-auto text-center">
+                 <h2 class="text-2xl font-bold text-accent fade-in">What's Next?</h2>
+                 <h3 class="text-4xl md:text-5xl font-bold mt-4 text-gray-100 fade-in">Get In Touch</h3>
+                 <p class="mt-6 max-w-xl mx-auto text-lg text-gray-400 fade-in">
                     I'm currently open to new opportunities and would love to hear from you. Whether you have a question or just want to say hi, I'll do my best to get back to you!
                  </p>
-                 <div class="mt-8">
+                 <div class="mt-8 fade-in">
                     <a href="mailto:contact@bhupalbhattarai.com.np" class="cta-button">Say Hello</a>
                  </div>
             </div>
         </section>
-    </div>
+    </main>
+    
+    <footer class="py-6 text-center bg-[#112240]">
+        <p class="text-gray-500 text-sm">
+            Designed & Built by Bhupal Bhattarai with inspiration.
+        </p>
+         <p class="text-gray-500 text-sm mt-1">
+            <a href="https://bhupalbhattarai.com.np" target="_blank" rel="noopener noreferrer" class="hover:text-accent">bhupalbhattarai.com.np</a>
+        </p>
+    </footer>
 
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
