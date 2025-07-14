@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
     const openIcon = mobileMenuButton.querySelector('svg:first-child');
     const closeIcon = mobileMenuButton.querySelector('svg:last-child');
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
 
     // --- Header Shadow on Scroll ---
     window.addEventListener('scroll', () => {
@@ -97,4 +99,37 @@ document.addEventListener('DOMContentLoaded', function() {
     faders.forEach(fader => {
         appearOnScroll.observe(fader);
     });
+
+    // --- Contact Form Submission ---
+    if (contactForm) {
+        contactForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            fetch("https://formspree.io/f/YOUR_FORM_ID", { // IMPORTANT: Replace YOUR_FORM_ID
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    formStatus.textContent = "Thanks for your message! I'll get back to you soon.";
+                    formStatus.style.color = "#64ffda";
+                    contactForm.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            formStatus.textContent = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            formStatus.textContent = "Oops! There was a problem submitting your form.";
+                        }
+                        formStatus.style.color = "#ff8a8a";
+                    })
+                }
+            }).catch(error => {
+                formStatus.textContent = "Oops! There was a problem submitting your form.";
+                formStatus.style.color = "#ff8a8a";
+            });
+        });
+    }
 });
