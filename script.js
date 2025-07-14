@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener("submit", function(e) {
             e.preventDefault();
             const formData = new FormData(contactForm);
-            fetch("https://formspree.io/f/YOUR_FORM_ID", { // IMPORTANT: Replace YOUR_FORM_ID
+            fetch("https://formspree.io/f/xgvzwnke", {
                 method: "POST",
                 body: formData,
                 headers: {
