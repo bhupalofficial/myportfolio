@@ -92,6 +92,16 @@ h1, h2, h3, h4, h5, h6 {
     left: -0.5rem;
 }
 
+/* Hobbies Styling */
+.hobby-tag {
+    background-color: rgba(100, 255, 218, 0.1);
+    color: #64ffda;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-family: 'Roboto Mono', monospace;
+}
+
 /* Button & Social Icons */
 .cta-button {
     display: inline-block;
@@ -120,18 +130,17 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-3px);
 }
 
-/* Vertical Timeline Styles */
+/* Timeline Styles */
 .timeline-container {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* The vertical line */
 .timeline-container::before {
     content: '';
     position: absolute;
-    left: 30px; /* Aligns with the center of the logo */
+    left: 30px;
     top: 0;
     bottom: 0;
     width: 4px;
@@ -178,16 +187,28 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
 }
 
-/* Responsive styles for mobile */
-@media screen and (max-width: 768px) {
-    .timeline-container::before {
-        left: 30px;
-    }
-    .timeline-item {
-        gap: 20px;
-    }
+/* Skills Section Styling */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
 }
 
+.skill-item {
+    background-color: #112240;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    border: 1px solid #233554;
+    transition: all 0.3s ease;
+    color: #ccd6f6;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    color: #64ffda;
+    border-color: #64ffda;
+}
 
 /* Contact Form Styling */
 .form-input {
@@ -211,4 +232,14 @@ h1, h2, h3, h4, h5, h6 {
 
 #form-status {
     transition: opacity 0.3s ease-in-out;
+}
+
+/* Responsive styles for mobile */
+@media screen and (max-width: 768px) {
+    .timeline-container::before {
+        left: 30px;
+    }
+    .timeline-item {
+        gap: 20px;
+    }
 }
