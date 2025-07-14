@@ -191,37 +191,49 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Skills Section Styling */
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
 }
 
-.skill-item {
+@media (min-width: 768px) {
+    .skills-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.skills-grid-creative {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
     background-color: #112240;
-    padding: 1rem 1.5rem;
     border-radius: 0.5rem;
+    padding: 1.5rem;
     text-align: center;
     border: 1px solid #233554;
     transition: all 0.3s ease;
-    color: #ccd6f6;
-    font-family: 'Roboto Mono', monospace;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
 }
 
-.skill-item::before {
-    content: '✓';
-    color: #64ffda;
-}
-
-.skill-item:hover {
+.skill-card:hover {
     transform: translateY(-5px);
-    color: #64ffda;
     border-color: #64ffda;
-    background-color: rgba(100, 255, 218, 0.1);
+}
+
+.skill-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    color: #64ffda;
+}
+
+.skill-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #ccd6f6;
 }
 
 
