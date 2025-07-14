@@ -140,7 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 .timeline-container::before {
     content: '';
     position: absolute;
-    left: 30px;
+    left: 32px; /* Center of the square logo */
     top: 0;
     bottom: 0;
     width: 4px;
@@ -160,7 +160,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-shrink: 0;
     width: 64px;
     height: 64px;
-    border-radius: 50%;
+    border-radius: 0.5rem; /* Changed to square */
     overflow: hidden;
     border: 4px solid #64ffda;
     background: #0a192f;
@@ -189,26 +189,38 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Skills Section Styling */
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
+    justify-content: center;
 }
 
 .skill-item {
     background-color: #112240;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     border-radius: 0.5rem;
     text-align: center;
     border: 1px solid #233554;
     transition: all 0.3s ease;
     color: #ccd6f6;
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-item::before {
+    content: '✓';
+    color: #64ffda;
 }
 
 .skill-item:hover {
     transform: translateY(-5px);
     color: #64ffda;
     border-color: #64ffda;
+    background-color: rgba(100, 255, 218, 0.1);
 }
+
 
 /* Contact Form Styling */
 .form-input {
@@ -237,9 +249,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive styles for mobile */
 @media screen and (max-width: 768px) {
     .timeline-container::before {
-        left: 30px;
+        left: 32px;
     }
     .timeline-item {
         gap: 20px;
+    }
+    .about-image-container {
+        order: -1; /* Move image above text on mobile */
     }
 }
