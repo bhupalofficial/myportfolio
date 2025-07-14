@@ -153,9 +153,22 @@
                  <p class="mt-6 max-w-xl mx-auto text-lg text-gray-400 fade-in">
                     I'm currently open to new opportunities and would love to hear from you. Whether you have a question or just want to say hi, I'll do my best to get back to you!
                  </p>
-                 <div class="mt-8 fade-in">
-                    <a href="mailto:contact@bhupalbhattarai.com.np" class="cta-button">Say Hello</a>
-                 </div>
+                 <form id="contact-form" class="mt-8 max-w-xl mx-auto fade-in">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+                        <input type="email" name="email" placeholder="Your Email" class="form-input" required>
+                    </div>
+                    <div class="mt-6">
+                        <input type="text" name="subject" placeholder="Subject" class="form-input" required>
+                    </div>
+                    <div class="mt-6">
+                        <textarea name="message" placeholder="Your Message" rows="5" class="form-input" required></textarea>
+                    </div>
+                    <div class="mt-8">
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </div>
+                 </form>
+                 <p id="form-status" class="mt-4"></p>
             </div>
         </section>
     </main>
