@@ -18,24 +18,15 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header -->
+    <!-- Header for Mobile View -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-card mx-2 mt-2 md:mx-4 md:mt-4">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
                     <a href="#" class="text-2xl font-bold text-accent">BB</a>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#hero" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                        <a href="#about" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="#experience" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">Experience</a>
-                        <a href="#skills" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                        <a href="#contact" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-                    </div>
-                </div>
                 <!-- Mobile menu button -->
-                <div class="-mr-2 flex md:hidden">
+                <div class="-mr-2 flex">
                     <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                         <span class="sr-only">Open main menu</span>
                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -49,7 +40,7 @@
             </div>
         </div>
         <!-- Mobile menu, show/hide based on menu state. -->
-        <div id="mobile-menu" class="md:hidden hidden transform -translate-y-full">
+        <div id="mobile-menu" class="hidden transform -translate-y-full">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#hero" class="text-gray-300 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">Home</a>
                 <a href="#about" class="text-gray-300 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">About</a>
@@ -60,179 +51,115 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Side Navigation for Desktop View -->
+    <nav class="side-nav">
+        <ul>
+            <li><a href="#hero" data-nav="hero" class="active" aria-label="Go to Home section"></a></li>
+            <li><a href="#about" data-nav="about" aria-label="Go to About section"></a></li>
+            <li><a href="#experience" data-nav="experience" aria-label="Go to Experience section"></a></li>
+            <li><a href="#skills" data-nav="skills" aria-label="Go to Skills section"></a></li>
+            <li><a href="#contact" data-nav="contact" aria-label="Go to Contact section"></a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Scrolling Container -->
+    <div class="fullscreen-container">
         <!-- Hero Section -->
-        <section id="hero" class="min-h-screen flex items-center">
-            <div class="w-full">
+        <section id="hero" class="fullscreen-section">
+            <div class="content-wrapper text-center">
                 <p class="text-accent text-lg mb-4 fade-in" style="transition-delay: 100ms;">Hi, I am</p>
                 <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold text-gray-100 fade-in" style="transition-delay: 200ms;">Bhupal Bhattarai.</h1>
-                <p class="mt-6 max-w-xl text-lg text-gray-400 fade-in" style="transition-delay: 400ms;">
+                <p class="mt-6 max-w-xl mx-auto text-lg text-gray-400 fade-in" style="transition-delay: 400ms;">
                     I'm a diligent and adaptable professional with a passion for technology, skilled in IT operations, public relations, and customer service. I thrive on learning new skills and contributing to team success.
                 </p>
-                <div class="mt-8 flex items-center space-x-6 fade-in" style="transition-delay: 500ms;">
+                <div class="mt-8 flex items-center justify-center space-x-6 fade-in" style="transition-delay: 500ms;">
                     <a href="#contact" class="cta-button">Get In Touch</a>
                     <div class="social-icons flex items-center space-x-4">
-                        <a href="https://facebook.com/officialbhupal" target="_blank" class="social-icon" aria-label="Facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                        </a>
-                        <a href="https://twitter.com/officialbhupal" target="_blank" class="social-icon" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-                        </a>
-                        <a href="https://instagram.com/officialbhupal" target="_blank" class="social-icon" aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                        </a>
-                        <a href="tel:+9779817974297" class="social-icon" aria-label="Call">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        </a>
-                        <a href="mailto:contact@bhupalbhattarai.com.np" class="social-icon" aria-label="Email">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        </a>
+                        <a href="https://facebook.com/officialbhupal" target="_blank" class="social-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="https://twitter.com/officialbhupal" target="_blank" class="social-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="https://instagram.com/officialbhupal" target="_blank" class="social-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="tel:+9779817974297" class="social-icon" aria-label="Call"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+                        <a href="mailto:contact@bhupalbhattarai.com.np" class="social-icon" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-20 lg:py-32 bg-[#112240]">
-            <h2 class="text-3xl font-bold mb-12 flex items-center fade-in">
-                About Me
-                <span class="h-px bg-gray-600 flex-grow ml-4"></span>
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
-                <div class="md:col-span-3 text-gray-400 text-lg space-y-4 fade-in">
-                    <p>
-                        Hello! I'm Bhupal, a dedicated and trustworthy professional with a strong foundation in IT and a knack for organization. My journey into the tech world began in 2015 with a diploma in computer hardware, which sparked a long-standing passion for technology.
-                    </p>
-                    <p>
-                        I enjoy taking on challenges and am eager to learn and take the lead. My goal is to leverage my skills to foster career growth while contributing significantly to a company's success. I am a friendly, team-oriented individual who brings both innovation and technical know-how to the table.
-                    </p>
-                    <p>
-                        Here are a few technologies and skills I've been working with recently:
-                    </p>
-                    <ul class="grid grid-cols-2 gap-2 text-sm mt-4">
-                        <li class="flex items-center"><span class="text-accent mr-2">➤</span>IT Support & Troubleshooting</li>
-                        <li class="flex items-center"><span class="text-accent mr-2">➤</span>Database Management</li>
-                        <li class="flex items-center"><span class="text-accent mr-2">➤</span>Public Relations</li>
-                        <li class="flex items-center"><span class="text-accent mr-2">➤</span>Customer Service</li>
-                        <li class="flex items-center"><span class="text-accent mr-2">➤</span>Microsoft Office Suite</li>
-                        <li class="flex items-center"><span class="text-accent mr-2">➤</span>Hardware & Networking</li>
-                    </ul>
-                </div>
-                <div class="md:col-span-2 flex justify-center items-start fade-in">
-                    <div class="w-64 h-64 relative group">
-                        <div class="absolute inset-0 bg-accent rounded-lg transform rotate-6 group-hover:rotate-3 transition-transform duration-300"></div>
-                        <img src="Image/photo.png" alt="Bhupal Bhattarai" class="relative w-full h-full object-cover rounded-lg shadow-lg" onerror="this.onerror=null;this.src='https://placehold.co/300x300/e2e8f0/2d3748?text=Image+Not+Found';">
+        <section id="about" class="fullscreen-section">
+            <div class="content-wrapper">
+                <h2 class="text-3xl font-bold mb-12 flex items-center">About Me<span class="h-px bg-gray-600 flex-grow ml-4"></span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
+                    <div class="md:col-span-3 text-gray-400 text-lg space-y-4">
+                        <p>Hello! I'm Bhupal, a dedicated and trustworthy professional with a strong foundation in IT and a knack for organization. My journey into the tech world began in 2015 with a diploma in computer hardware, which sparked a long-standing passion for technology.</p>
+                        <p>I enjoy taking on challenges and am eager to learn and take the lead. My goal is to leverage my skills to foster career growth while contributing significantly to a company's success. I am a friendly, team-oriented individual who brings both innovation and technical know-how to the table.</p>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center items-center">
+                        <div class="w-64 h-64 relative group">
+                            <div class="absolute inset-0 bg-accent rounded-lg transform rotate-6 group-hover:rotate-3 transition-transform duration-300"></div>
+                            <img src="Image/photo.png" alt="Bhupal Bhattarai" class="relative w-full h-full object-cover rounded-lg shadow-lg" onerror="this.onerror=null;this.src='https://placehold.co/300x300/e2e8f0/2d3748?text=Image+Not+Found';">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="py-20 lg:py-32">
-            <h2 class="text-3xl font-bold mb-12 flex items-center fade-in">
-                Where I've Worked
-                <span class="h-px bg-gray-600 flex-grow ml-4"></span>
-            </h2>
-            <div class="experience-tabs-container mx-auto max-w-4xl fade-in">
-                <div class="experience-tabs-list" role="tablist" aria-label="Job History">
-                    <button id="tab-asialink" role="tab" class="experience-tab active" aria-selected="true" aria-controls="panel-asialink">ASIALINK</button>
-                    <button id="tab-nctf" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-nctf">NCTF</button>
-                    <button id="tab-future" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-future">Future Employment</button>
-                    <button id="tab-focus" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-focus">Focus Nepal</button>
-                    <button id="tab-community" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-community">Community e-Center</button>
-                </div>
-
-                <div class="experience-panels">
-                    <div id="panel-asialink" class="experience-panel active" role="tabpanel" tabindex="0" aria-labelledby="tab-asialink">
-                        <h3 class="text-xl font-semibold text-gray-100">Documentation Department Head <span class="text-accent">@ ASIALINK SERVICES PVT. LTD.</span></h3>
-                        <p class="text-gray-400 mb-4 text-sm">April 2025 - Present</p>
-                        <ul class="list-disc list-inside text-gray-400 space-y-2">
-                            <li>Leading and mentoring a team of 5 documentation specialists to ensure high-quality output and professional growth.</li>
-                            <li>Overseeing the creation, review, and management of all client-facing and internal documentation.</li>
-                            <li>Developing and implementing new strategies and workflows to improve departmental efficiency and accuracy.</li>
-                        </ul>
+        <section id="experience" class="fullscreen-section">
+            <div class="content-wrapper">
+                <h2 class="text-3xl font-bold mb-12 flex items-center">Where I've Worked<span class="h-px bg-gray-600 flex-grow ml-4"></span></h2>
+                <div class="experience-tabs-container mx-auto">
+                    <div class="experience-tabs-list" role="tablist" aria-label="Job History">
+                        <button id="tab-asialink" role="tab" class="experience-tab active" aria-selected="true" aria-controls="panel-asialink">ASIALINK</button>
+                        <button id="tab-nctf" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-nctf">NCTF</button>
+                        <button id="tab-future" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-future">Future Employment</button>
+                        <button id="tab-focus" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-focus">Focus Nepal</button>
+                        <button id="tab-community" role="tab" class="experience-tab" aria-selected="false" aria-controls="panel-community">Community e-Center</button>
                     </div>
-                    <div id="panel-nctf" class="experience-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-nctf" hidden>
-                        <h3 class="text-xl font-semibold text-gray-100">IT Officer <span class="text-accent">@ Nepal Career Training Foundation</span></h3>
-                        <p class="text-gray-400 mb-4 text-sm">April 2021 - Nov 2023</p>
-                        <ul class="list-disc list-inside text-gray-400 space-y-2">
-                            <li>Managed and enhanced key training databases including EVENT-II, SAMRIDDHI, NSTB, and FEB TMIS.</li>
-                            <li>Organized, updated, and stored documents for efficient information retrieval across departments.</li>
-                            <li>Provided comprehensive technical support to all employees, ensuring smooth daily operations.</li>
-                        </ul>
-                    </div>
-                    <div id="panel-future" class="experience-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-future" hidden>
-                        <h3 class="text-xl font-semibold text-gray-100">Public Relation Officer <span class="text-accent">@ Future Employment Service</span></h3>
-                        <p class="text-gray-400 mb-4 text-sm">Aug 2019 - Mar 2020</p>
-                        <ul class="list-disc list-inside text-gray-400 space-y-2">
-                            <li>Cultivated a positive public image for the company through strategic communication and media outreach.</li>
-                            <li>Built and maintained strong, lasting relationships with clients, job seekers, and key industry stakeholders.</li>
-                            <li>Organized successful recruitment events and client engagement activities to boost company profile.</li>
-                        </ul>
-                    </div>
-                    <div id="panel-focus" class="experience-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-focus" hidden>
-                        <h3 class="text-xl font-semibold text-gray-100">Computer Operator <span class="text-accent">@ Focus Nepal Overseas</span></h3>
-                        <p class="text-gray-400 mb-4 text-sm">July 2016 - July 2019</p>
-                        <ul class="list-disc list-inside text-gray-400 space-y-2">
-                            <li>Managed client passport handling and maintained meticulous, confidential records with 100% accuracy.</li>
-                            <li>Handled daily office email correspondence and the processing of sensitive client documents.</li>
-                        </ul>
-                    </div>
-                    <div id="panel-community" class="experience-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-community" hidden>
-                        <h3 class="text-xl font-semibold text-gray-100">Computer Trainer <span class="text-accent">@ Community e-Center Jhapa</span></h3>
-                        <p class="text-gray-400 mb-4 text-sm">Jan 2015 - Mar 2016</p>
-                        <ul class="list-disc list-inside text-gray-400 space-y-2">
-                            <li>Developed and delivered engaging lesson plans based on course objectives and student needs.</li>
-                            <li>Utilized Microsoft Office and e-Learning tools to provide effective, hands-on training delivery.</li>
-                            <li>Consistently received positive evaluations from students for clear, concise, and patient instruction.</li>
-                        </ul>
+                    <div class="experience-panels">
+                        <div id="panel-asialink" class="experience-panel active" role="tabpanel" tabindex="0" aria-labelledby="tab-asialink"><h3 class="text-xl font-semibold text-gray-100">Documentation Department Head <span class="text-accent">@ ASIALINK SERVICES PVT. LTD.</span></h3><p class="text-gray-400 mb-4 text-sm">April 2025 - Present</p><ul class="list-disc list-inside text-gray-400 space-y-2"><li>Leading and mentoring a team of 5 documentation specialists.</li><li>Overseeing the creation and management of all client-facing and internal documentation.</li></ul></div>
+                        <div id="panel-nctf" class="experience-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-nctf" hidden><h3 class="text-xl font-semibold text-gray-100">IT Officer <span class="text-accent">@ Nepal Career Training Foundation</span></h3><p class="text-gray-400 mb-4 text-sm">April 2021 - Nov 2023</p><ul class="list-disc list-inside text-gray-400 space-y-2"><li>Managed and enhanced key training databases.</li><li>Provided comprehensive technical support to all employees.</li></ul></div>
+                        <div id="panel-future" class="experience-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-future" hidden><h3 class="text-xl font-semibold text-gray-100">Public Relation Officer <span class="text-accent">@ Future Employment Service</span></h3><p class="text-gray-400 mb-4 text-sm">Aug 2019 - Mar 2020</p><ul class="list-disc list-inside text-gray-400 space-y-2"><li>Cultivated a positive public image for the company.</li><li>Built and maintained strong relationships with clients and stakeholders.</li></ul></div>
+                        <div id="panel-focus" class="experience-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-focus" hidden><h3 class="text-xl font-semibold text-gray-100">Computer Operator <span class="text-accent">@ Focus Nepal Overseas</span></h3><p class="text-gray-400 mb-4 text-sm">July 2016 - July 2019</p><ul class="list-disc list-inside text-gray-400 space-y-2"><li>Managed client passport handling and maintained meticulous records.</li><li>Handled daily office email correspondence.</li></ul></div>
+                        <div id="panel-community" class="experience-panel" role="tabpanel" tabindex="0" aria-labelledby="tab-community" hidden><h3 class="text-xl font-semibold text-gray-100">Computer Trainer <span class="text-accent">@ Community e-Center Jhapa</span></h3><p class="text-gray-400 mb-4 text-sm">Jan 2015 - Mar 2016</p><ul class="list-disc list-inside text-gray-400 space-y-2"><li>Developed and delivered engaging lesson plans.</li><li>Utilized Microsoft Office and e-Learning tools for training.</li></ul></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-20 lg:py-32 bg-[#112240]">
-            <h2 class="text-3xl font-bold mb-12 flex items-center fade-in">
-                Skills & Strengths
-                <span class="h-px bg-gray-600 flex-grow ml-4"></span>
-            </h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 text-center">
-                <div class="glass-card p-6 fade-in"><p>Customer Service</p></div>
-                <div class="glass-card p-6 fade-in"><p>Communication</p></div>
-                <div class="glass-card p-6 fade-in"><p>Teamwork</p></div>
-                <div class="glass-card p-6 fade-in"><p>Problem Solving</p></div>
-                <div class="glass-card p-6 fade-in"><p>Adaptability</p></div>
-                <div class="glass-card p-6 fade-in"><p>E-mail & Internet</p></div>
-                <div class="glass-card p-6 fade-in"><p>Data Management</p></div>
-                <div class="glass-card p-6 fade-in"><p>Technical Support</p></div>
-                <div class="glass-card p-6 fade-in"><p>Public Speaking</p></div>
-                <div class="glass-card p-6 fade-in"><p>Self-Motivated</p></div>
+        <section id="skills" class="fullscreen-section">
+            <div class="content-wrapper text-center">
+                <h2 class="text-3xl font-bold mb-12">Skills & Strengths</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                    <div class="glass-card p-6"><p>Customer Service</p></div>
+                    <div class="glass-card p-6"><p>Communication</p></div>
+                    <div class="glass-card p-6"><p>Teamwork</p></div>
+                    <div class="glass-card p-6"><p>Problem Solving</p></div>
+                    <div class="glass-card p-6"><p>Adaptability</p></div>
+                    <div class="glass-card p-6"><p>E-mail & Internet</p></div>
+                    <div class="glass-card p-6"><p>Data Management</p></div>
+                    <div class="glass-card p-6"><p>Technical Support</p></div>
+                    <div class="glass-card p-6"><p>Public Speaking</p></div>
+                    <div class="glass-card p-6"><p>Self-Motivated</p></div>
+                </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 lg:py-32 text-center">
-             <h2 class="text-2xl font-bold text-accent fade-in">What's Next?</h2>
-             <h3 class="text-4xl md:text-5xl font-bold mt-4 text-gray-100 fade-in">Get In Touch</h3>
-             <p class="mt-6 max-w-xl mx-auto text-lg text-gray-400 fade-in">
-                I'm currently open to new opportunities and would love to hear from you. Whether you have a question or just want to say hi, I'll do my best to get back to you!
-             </p>
-             <div class="mt-8 fade-in">
-                <a href="mailto:contact@bhupalbhattarai.com.np" class="cta-button">Say Hello</a>
-             </div>
+        <section id="contact" class="fullscreen-section">
+            <div class="content-wrapper text-center">
+                 <h2 class="text-2xl font-bold text-accent">What's Next?</h2>
+                 <h3 class="text-4xl md:text-5xl font-bold mt-4 text-gray-100">Get In Touch</h3>
+                 <p class="mt-6 max-w-xl mx-auto text-lg text-gray-400">
+                    I'm currently open to new opportunities and would love to hear from you. Whether you have a question or just want to say hi, I'll do my best to get back to you!
+                 </p>
+                 <div class="mt-8">
+                    <a href="mailto:contact@bhupalbhattarai.com.np" class="cta-button">Say Hello</a>
+                 </div>
+            </div>
         </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-6 text-center bg-[#112240]">
-        <p class="text-gray-500 text-sm">
-            Designed & Built by Bhupal Bhattarai with inspiration.
-        </p>
-         <p class="text-gray-500 text-sm mt-1">
-            <a href="https://bhupalbhattarai.com.np" target="_blank" rel="noopener noreferrer" class="hover:text-accent">bhupalbhattarai.com.np</a>
-        </p>
-    </footer>
+    </div>
 
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
