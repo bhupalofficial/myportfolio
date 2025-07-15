@@ -4,28 +4,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.getElementById('header');
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    const openIcon = mobileMenuButton.querySelector('svg:first-child');
-    const closeIcon = mobileMenuButton.querySelector('svg:last-child');
+    const openIcon = mobileMenuButton ? mobileMenuButton.querySelector('svg:first-child') : null;
+    const closeIcon = mobileMenuButton ? mobileMenuButton.querySelector('svg:last-child') : null;
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
+    const downloadCvBtn = document.getElementById('download-cv-btn');
+    const downloadCvBtnMobile = document.getElementById('download-cv-btn-mobile');
 
     // --- Header Shadow on Scroll ---
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 10) {
-            header.classList.add('shadow-lg');
-        } else {
-            header.classList.remove('shadow-lg');
-        }
-    });
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    }
 
     // --- Mobile Menu Toggle ---
-    mobileMenuButton.addEventListener('click', () => {
-        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-        mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-        mobileMenu.classList.toggle('hidden');
-        openIcon.classList.toggle('hidden');
-        closeIcon.classList.toggle('hidden');
-    });
+    if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+    }
 
     // --- Smooth Scrolling for Anchor Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -35,14 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                // Close mobile menu if open before scrolling
-                if (!mobileMenu.classList.contains('hidden')) {
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                     mobileMenuButton.click();
                 }
-                
-                // Scroll to the target element
                 window.scrollTo({
-                    top: targetElement.offsetTop - 100, // Adjust offset for fixed header
+                    top: targetElement.offsetTop - 100,
                     behavior: 'smooth'
                 });
             }
@@ -51,26 +52,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Scroll-Triggered Fade-In Animations ---
     const faders = document.querySelectorAll('.fade-in');
-    
     const appearOptions = {
         threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
     };
-
     const appearOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
         });
     }, appearOptions);
-
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-    });
+    faders.forEach(fader => appearOnScroll.observe(fader));
 
     // --- Contact Form Submission ---
     if (contactForm) {
@@ -80,9 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch("https://formspree.io/f/xgvzwnke", {
                 method: "POST",
                 body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             }).then(response => {
                 if (response.ok) {
                     formStatus.textContent = "Thanks for your message! I'll get back to you soon.";
@@ -90,13 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     contactForm.reset();
                 } else {
                     response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            formStatus.textContent = data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            formStatus.textContent = "Oops! There was a problem submitting your form.";
-                        }
+                        formStatus.textContent = data.errors ? data.errors.map(error => error.message).join(", ") : "Oops! There was a problem submitting your form.";
                         formStatus.style.color = "#ff8a8a";
-                    })
+                    });
                 }
             }).catch(error => {
                 formStatus.textContent = "Oops! There was a problem submitting your form.";
@@ -104,4 +91,64 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // --- CV Download Functionality ---
+    const handleDownload = () => {
+        const originalBtnText = "Download CV";
+        if(downloadCvBtn) downloadCvBtn.innerHTML = 'Preparing...';
+        if(downloadCvBtnMobile) downloadCvBtnMobile.innerHTML = 'Preparing...';
+
+        // Fetch the HTML content of the CV
+        fetch('cv.html')
+            .then(response => response.text())
+            .then(html => {
+                const element = document.createElement('div');
+                element.innerHTML = html;
+                
+                // Find all .page elements to generate a multi-page PDF
+                const pages = element.querySelectorAll('.page');
+                
+                if (pages.length > 0) {
+                    const opt = {
+                        margin:       0,
+                        filename:     'Bhupal_Bhattarai_CV.pdf',
+                        image:        { type: 'jpeg', quality: 0.98 },
+                        html2canvas:  { scale: 2, useCORS: true },
+                        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    };
+
+                    // Generate the PDF from the collection of pages
+                    html2pdf().from(pages).set(opt).save().then(() => {
+                        if(downloadCvBtn) downloadCvBtn.innerHTML = originalBtnText;
+                        if(downloadCvBtnMobile) downloadCvBtnMobile.innerHTML = originalBtnText;
+                    });
+
+                } else {
+                    console.error("CV content container (.page) not found in cv.html");
+                    alert("Could not generate PDF. Content not found.");
+                    if(downloadCvBtn) downloadCvBtn.innerHTML = originalBtnText;
+                    if(downloadCvBtnMobile) downloadCvBtnMobile.innerHTML = originalBtnText;
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching cv.html:', error);
+                alert('Could not load CV for download. Please try again later.');
+                if(downloadCvBtn) downloadCvBtn.innerHTML = originalBtnText;
+                if(downloadCvBtnMobile) downloadCvBtnMobile.innerHTML = originalBtnText;
+            });
+    };
+
+    if (downloadCvBtn) {
+        downloadCvBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            handleDownload();
+        });
+    }
+    if (downloadCvBtnMobile) {
+         downloadCvBtnMobile.addEventListener('click', (e) => {
+            e.preventDefault();
+            handleDownload();
+        });
+    }
 });
+
