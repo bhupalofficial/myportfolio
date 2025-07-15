@@ -285,6 +285,9 @@ h1, h2, h3, h4, h5, h6 {
     .timeline-content {
         padding: 15px;
     }
+    .timeline-content ul {
+        font-size: 0.875rem; /* Smaller font for job descriptions on mobile */
+    }
     .about-image-container {
         order: -1; /* Move image above text on mobile */
     }
