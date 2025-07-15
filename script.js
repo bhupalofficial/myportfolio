@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.getElementById('header');
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    const openIcon = mobileMenuButton ? mobileMenuButton.querySelector('svg:first-child') : null;
-    const closeIcon = mobileMenuButton ? mobileMenuButton.querySelector('svg:last-child') : null;
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
     const downloadCvBtn = document.getElementById('download-cv-btn');
@@ -23,11 +21,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- Mobile Menu Toggle ---
-    if (mobileMenuButton) {
+    if (mobileMenuButton && mobileMenu) {
+        const openIcon = mobileMenuButton.querySelector('svg:first-child');
+        const closeIcon = mobileMenuButton.querySelector('svg:last-child');
+        
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            openIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
+            if (openIcon && closeIcon) {
+                openIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            }
         });
     }
 
@@ -52,18 +55,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Scroll-Triggered Fade-In Animations ---
     const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        });
-    }, appearOptions);
-    faders.forEach(fader => appearOnScroll.observe(fader));
+    if (faders.length > 0) {
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+        faders.forEach(fader => appearOnScroll.observe(fader));
+    }
 
     // --- Contact Form Submission ---
     if (contactForm) {
@@ -98,30 +103,55 @@ document.addEventListener('DOMContentLoaded', function() {
         if(downloadCvBtn) downloadCvBtn.innerHTML = 'Preparing...';
         if(downloadCvBtnMobile) downloadCvBtnMobile.innerHTML = 'Preparing...';
 
-        // Get the CV content directly from the hidden container in the HTML
-        const cvElement = document.getElementById('cv-container');
-        
-        if (cvElement) {
-            const opt = {
-                margin:       0,
-                filename:     'Bhupal_Bhattarai_CV.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, useCORS: true },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
+        // Fetch the HTML content of the CV file
+        fetch('cv.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(html => {
+                const element = document.createElement('div');
+                element.innerHTML = html;
+                
+                // Find the .page elements to generate a multi-page PDF
+                const pages = element.querySelectorAll('.page');
+                
+                if (pages.length > 0) {
+                    const opt = {
+                        margin:       0,
+                        filename:     'Bhupal_Bhattarai_CV.pdf',
+                        image:        { type: 'jpeg', quality: 0.98 },
+                        html2canvas:  { scale: 2, useCORS: true },
+                        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    };
 
-            // Generate the PDF from the element
-            html2pdf().from(cvElement).set(opt).save().then(() => {
+                    html2pdf().from(pages[0]).set(opt).toPdf().get('pdf').then(function (pdf) {
+                        for(var i = 1; i < pages.length; i++) {
+                            pdf.addPage();
+                            html2pdf().from(pages[i]).set(opt).toPdf().get('pdf').then(function(innerPdf) {
+                                pdf.addPage(innerPdf.internal.pages[1]);
+                            });
+                        }
+                    }).save().then(() => {
+                        if(downloadCvBtn) downloadCvBtn.innerHTML = originalBtnText;
+                        if(downloadCvBtnMobile) downloadCvBtnMobile.innerHTML = originalBtnText;
+                    });
+
+                } else {
+                    console.error("CV content container (.page) not found in cv.html");
+                    alert("Could not generate PDF. Content not found.");
+                    if(downloadCvBtn) downloadCvBtn.innerHTML = originalBtnText;
+                    if(downloadCvBtnMobile) downloadCvBtnMobile.innerHTML = originalBtnText;
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching cv.html:', error);
+                alert('Could not load CV for download. Please make sure cv.html is in the root folder.');
                 if(downloadCvBtn) downloadCvBtn.innerHTML = originalBtnText;
                 if(downloadCvBtnMobile) downloadCvBtnMobile.innerHTML = originalBtnText;
             });
-
-        } else {
-            console.error("CV content container (#cv-container) not found in the document.");
-            alert("Could not generate PDF. Content not found.");
-            if(downloadCvBtn) downloadCvBtn.innerHTML = originalBtnText;
-            if(downloadCvBtnMobile) downloadCvBtnMobile.innerHTML = originalBtnText;
-        }
     };
 
     if (downloadCvBtn) {
