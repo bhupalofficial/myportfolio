@@ -204,10 +204,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .icon-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 1rem;
+    justify-items: center;
 }
 
 .icon-box {
@@ -215,7 +215,6 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    width: 100px;
     text-align: center;
     color: #8892b0;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -224,6 +223,9 @@ h1, h2, h3, h4, h5, h6 {
 .icon-box i, .photoshop-icon {
     font-size: 48px;
     margin-bottom: 0.5rem;
+    height: 48px; 
+    display: flex;
+    align-items: center;
 }
 
 .icon-box:hover {
@@ -278,5 +280,15 @@ h1, h2, h3, h4, h5, h6 {
     }
     .about-image-container {
         order: -1; /* Move image above text on mobile */
+    }
+    .icon-container {
+        gap: 2rem 1rem;
+    }
+    .icon-box i, .photoshop-icon {
+        font-size: 36px;
+        height: 36px;
+    }
+    .icon-label {
+        font-size: 0.75rem;
     }
 }
