@@ -120,6 +120,22 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(100, 255, 218, 0.1);
 }
 
+.nav-cta-button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #64ffda;
+    border-radius: 0.25rem;
+    color: #64ffda;
+    background-color: transparent;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-cta-button:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
 .social-icon {
     color: #8892b0;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -273,32 +289,12 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive styles for mobile */
 @media screen and (max-width: 768px) {
     .timeline-container::before {
-        left: 30px;
+        left: 40px;
     }
     .timeline-item {
         gap: 20px;
     }
-    .timeline-logo {
-        width: 60px;
-        height: 60px;
-    }
-    .timeline-content {
-        padding: 15px;
-    }
-    .timeline-content ul {
-        font-size: 0.875rem; /* Smaller font for job descriptions on mobile */
-    }
     .about-image-container {
         order: -1; /* Move image above text on mobile */
-    }
-    .icon-container {
-        gap: 2rem 1rem;
-    }
-    .icon-box i, .photoshop-icon {
-        font-size: 36px;
-        height: 36px;
-    }
-    .icon-label {
-        font-size: 0.75rem;
     }
 }
