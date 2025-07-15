@@ -107,18 +107,19 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('cv.html')
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    throw new Error('Network response was not ok. Make sure cv.html is in the root folder.');
                 }
                 return response.text();
             })
             .then(html => {
+                // Create a temporary element to hold the CV HTML
                 const element = document.createElement('div');
                 element.innerHTML = html;
                 
-                // Find the .page elements to generate a multi-page PDF
-                const pages = element.querySelectorAll('.page');
+                // Find the main container of the CV content
+                const cvContent = element.querySelector('body');
                 
-                if (pages.length > 0) {
+                if (cvContent) {
                     const opt = {
                         margin:       0,
                         filename:     'Bhupal_Bhattarai_CV.pdf',
@@ -127,20 +128,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
                     };
 
-                    html2pdf().from(pages[0]).set(opt).toPdf().get('pdf').then(function (pdf) {
-                        for(var i = 1; i < pages.length; i++) {
-                            pdf.addPage();
-                            html2pdf().from(pages[i]).set(opt).toPdf().get('pdf').then(function(innerPdf) {
-                                pdf.addPage(innerPdf.internal.pages[1]);
-                            });
-                        }
-                    }).save().then(() => {
+                    // Generate the PDF from the CV content
+                    html2pdf().from(cvContent).set(opt).save().then(() => {
                         if(downloadCvBtn) downloadCvBtn.innerHTML = originalBtnText;
                         if(downloadCvBtnMobile) downloadCvBtnMobile.innerHTML = originalBtnText;
                     });
 
                 } else {
-                    console.error("CV content container (.page) not found in cv.html");
+                    console.error("CV content container not found in cv.html");
                     alert("Could not generate PDF. Content not found.");
                     if(downloadCvBtn) downloadCvBtn.innerHTML = originalBtnText;
                     if(downloadCvBtnMobile) downloadCvBtnMobile.innerHTML = originalBtnText;
