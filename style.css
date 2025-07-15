@@ -273,10 +273,17 @@ h1, h2, h3, h4, h5, h6 {
 /* Responsive styles for mobile */
 @media screen and (max-width: 768px) {
     .timeline-container::before {
-        left: 40px;
+        left: 30px;
     }
     .timeline-item {
         gap: 20px;
+    }
+    .timeline-logo {
+        width: 60px;
+        height: 60px;
+    }
+    .timeline-content {
+        padding: 15px;
     }
     .about-image-container {
         order: -1; /* Move image above text on mobile */
