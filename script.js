@@ -1,107 +1,304 @@
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // --- Element Selections ---
-    const header = document.getElementById('header');
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const openIcon = mobileMenuButton.querySelector('svg:first-child');
-    const closeIcon = mobileMenuButton.querySelector('svg:last-child');
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
+/* Custom Fonts & Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0a192f;
+    color: #ccd6f6;
+    scroll-behavior: smooth;
+}
 
-    // --- Header Shadow on Scroll ---
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 10) {
-            header.classList.add('shadow-lg');
-        } else {
-            header.classList.remove('shadow-lg');
-        }
-    });
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab', serif;
+    color: #e6f1ff;
+}
 
-    // --- Mobile Menu Toggle ---
-    mobileMenuButton.addEventListener('click', () => {
-        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-        mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-        mobileMenu.classList.toggle('hidden');
-        openIcon.classList.toggle('hidden');
-        closeIcon.classList.toggle('hidden');
-    });
+/* Glassmorphism Effect for Header */
+.glass-card {
+    background: rgba(20, 38, 68, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+}
 
-    // --- Smooth Scrolling for Anchor Links ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                // Close mobile menu if open before scrolling
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenuButton.click();
-                }
-                
-                // Scroll to the target element
-                window.scrollTo({
-                    top: targetElement.offsetTop - 100, // Adjust offset for fixed header
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+/* Custom Accent Color */
+.text-accent {
+    color: #64ffda;
+}
 
-    // --- Scroll-Triggered Fade-In Animations ---
-    const faders = document.querySelectorAll('.fade-in');
-    
-    const appearOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
+/* Hero Section Background */
+#hero {
+    position: relative;
+    z-index: 1;
+}
 
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, appearOptions);
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('Image/cover.jpg') no-repeat center center/cover;
+    filter: brightness(0.3);
+    z-index: -2;
+}
 
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-    });
+#hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(10, 25, 47, 0.7);
+    z-index: -1;
+}
 
-    // --- Contact Form Submission ---
-    if (contactForm) {
-        contactForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-            fetch("https://formspree.io/f/xgvzwnke", {
-                method: "POST",
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    formStatus.textContent = "Thanks for your message! I'll get back to you soon.";
-                    formStatus.style.color = "#64ffda";
-                    contactForm.reset();
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            formStatus.textContent = data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            formStatus.textContent = "Oops! There was a problem submitting your form.";
-                        }
-                        formStatus.style.color = "#ff8a8a";
-                    })
-                }
-            }).catch(error => {
-                formStatus.textContent = "Oops! There was a problem submitting your form.";
-                formStatus.style.color = "#ff8a8a";
-            });
-        });
+/* General Component Styling */
+.content-wrapper {
+    max-width: 1100px;
+    width: 100%;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* About Section Image Styling */
+.about-image-container {
+    position: relative;
+}
+.about-image-container::after {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #64ffda;
+    border-radius: 0.5rem;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+.about-image-container:hover::after {
+    top: -0.5rem;
+    left: -0.5rem;
+}
+
+/* Hobbies Styling */
+.hobby-tag {
+    background-color: rgba(100, 255, 218, 0.1);
+    color: #64ffda;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Button & Social Icons */
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #64ffda;
+    border-radius: 0.25rem;
+    color: #64ffda;
+    background-color: transparent;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
+.social-icon {
+    color: #8892b0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #64ffda;
+    transform: translateY(-3px);
+}
+
+/* Timeline Styles */
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 40px; /* Center of the square logo */
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #233554;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.timeline-logo {
+    position: relative;
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 0.5rem; /* Square shape */
+    overflow: hidden;
+    border: 4px solid #64ffda;
+    background: #fff; /* White background for non-square logos */
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the whole logo is visible */
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: #112240;
+    border-radius: 6px;
+    border: 1px solid #233554;
+    flex-grow: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+/* Skills Section Styling */
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .skills-container {
+        grid-template-columns: 1fr 1fr;
     }
-});
+}
+
+.icon-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 1rem;
+    justify-items: center;
+}
+
+.icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    color: #8892b0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icon-box i, .photoshop-icon {
+    font-size: 48px;
+    margin-bottom: 0.5rem;
+    height: 48px; 
+    display: flex;
+    align-items: center;
+}
+
+.icon-box:hover {
+    color: #64ffda;
+    transform: translateY(-5px);
+}
+
+.icon-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.875rem;
+}
+
+.photoshop-icon {
+    font-size: 36px;
+    font-weight: bold;
+    color: #31A8FF; /* Photoshop's brand color */
+    line-height: 48px; /* To match i element height */
+}
+
+
+/* Contact Form Styling */
+.form-input {
+    width: 100%;
+    background-color: #112240;
+    border: 1px solid #233554;
+    color: #ccd6f6;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: #8892b0;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #64ffda;
+}
+
+#form-status {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Responsive styles for mobile */
+@media screen and (max-width: 768px) {
+    .timeline-container::before {
+        left: 30px;
+    }
+    .timeline-item {
+        gap: 20px;
+    }
+    .timeline-logo {
+        width: 60px;
+        height: 60px;
+    }
+    .timeline-content {
+        padding: 15px;
+    }
+    .timeline-content ul {
+        font-size: 0.875rem; /* Smaller font for job descriptions on mobile */
+    }
+    .about-image-container {
+        order: -1; /* Move image above text on mobile */
+    }
+    .icon-container {
+        gap: 2rem 1rem;
+    }
+    .icon-box i, .photoshop-icon {
+        font-size: 36px;
+        height: 36px;
+    }
+    .icon-label {
+        font-size: 0.75rem;
+    }
+}
