@@ -1,202 +1,349 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5644764333003001"
-     crossorigin="anonymous"></script>
-    <title>Bhupal Bhattarai</title>
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bhupal Bhattarai | IT Professional & Web Developer in Nepal</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Bhupal Bhattarai is a skilled IT Professional and Web Developer based in Jhapa, Nepal. Explore his portfolio showcasing expertise in IT operations, documentation, and modern web development." />
+    <meta name="keywords" content="Bhupal Bhattarai, IT Professional, Web Developer, Portfolio, IT Operations, Documentation Specialist, Frontend Developer, React, Jhapa, Nepal, Technology" />
+    <meta name="author" content="Bhupal Bhattarai" />
+    <meta name="theme-color" content="#0ea5e9" />
+    <link rel="canonical" href="https://bhupalbhattarai.com.np/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bhupalbhattarai.com.np/" />
+    <meta property="og:title" content="Bhupal Bhattarai | IT Professional & Web Developer" />
+    <meta property="og:description" content="The personal portfolio of Bhupal Bhattarai, a skilled IT professional from Nepal specializing in IT operations, public relations, and web development." />
+    <meta property="og:image" content="https://bhupalbhattarai.com.np/Image/photo.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://bhupalbhattarai.com.np/" />
+    <meta property="twitter:title" content="Bhupal Bhattarai | IT Professional & Web Developer" />
+    <meta property="twitter:description" content="The personal portfolio of Bhupal Bhattarai, a skilled IT professional from Nepal specializing in IT operations, public relations, and web development." />
+    <meta property="twitter:image" content="https://bhupalbhattarai.com.np/Image/photo.png" />
+
+    <!-- Favicon & Manifest -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Internal CSS -->
+    <style>
+/* Custom Styles for Bhupal Bhattarai Portfolio */
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+/* Typography & Prose */
+.prose {
+    color: #6b7280;
+    line-height: 1.75;
+}
 
-    <!-- Tailwind CSS for utility classes -->
+.dark .prose {
+    color: #94a3b8;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose strong {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.dark .prose h1, .dark .prose h2, .dark .prose h3, .dark .prose h4, .dark .prose strong {
+    color: #e2e8f0;
+}
+
+.prose a {
+    color: #0ea5e9;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.prose a:hover {
+    text-decoration: underline;
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.animate-blink {
+    animation: blink 1s step-end infinite;
+}
+
+.animate-spin-slow {
+    animation: spin 4s linear infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection Color */
+::selection {
+    background-color: rgba(14, 165, 233, 0.2);
+    color: #0ea5e9;
+}
+    </style>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              'poppins': ['Poppins', 'sans-serif'],
+              'roboto-slab': ['"Roboto Slab"', 'serif'],
+            },
+            colors: {
+              'background': '#ffffff',
+              'primary': '#1f2937',
+              'secondary': '#6b7280',
+              'accent': '#0ea5e9',
+              'card': '#f9fafb',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
 </head>
-<body class="antialiased">
+<body class="bg-background text-primary dark:bg-slate-950 dark:text-slate-50 font-poppins transition-colors duration-300">
 
-    <!-- Header for All Views -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-card mx-2 mt-2 md:mx-4 md:mt-4">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <a href="#hero" class="text-2xl font-bold text-accent">Bhupal Bhattarai</a>
-                </div>
-                <!-- Desktop Menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#hero" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                        <a href="#about" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="#experience" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">Experience</a>
-                        <a href="#skills" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                        <a href="#contact" class="text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-                    </div>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="-mr-2 flex md:hidden">
-                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/80 dark:bg-slate-950/80 backdrop-blur-lg border-b border-slate-200/50 dark:border-slate-800/50">
+        <div class="container mx-auto px-4 sm:px-8 md:px-16 flex items-center justify-between h-20">
+            <a href="#hero" class="text-2xl font-bold text-accent font-roboto-slab">Bhupal Bhattarai</a>
+            <div class="flex items-center gap-4">
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-primary dark:text-slate-300 hover:text-accent transition-colors font-medium">About</a>
+                    <a href="#experience" class="text-primary dark:text-slate-300 hover:text-accent transition-colors font-medium">Experience</a>
+                    <a href="#skills" class="text-primary dark:text-slate-300 hover:text-accent transition-colors font-medium">Skills</a>
+                    <a href="#projects" class="text-primary dark:text-slate-300 hover:text-accent transition-colors font-medium">Projects</a>
+                    <a href="#contact" class="text-primary dark:text-slate-300 hover:text-accent transition-colors font-medium">Contact</a>
+                </nav>
+                
+                <!-- Theme Switcher -->
+                <button id="theme-toggle" class="p-2 rounded-full text-primary dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-accent" aria-label="Toggle theme">
+                    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+
+                <button id="menu-toggle" class="md:hidden p-2 text-primary dark:text-slate-300" aria-label="Toggle menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
             </div>
         </div>
-        <!-- Mobile menu, show/hide based on menu state. -->
-        <div id="mobile-menu" class="md:hidden hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#hero" class="text-gray-300 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">Home</a>
-                <a href="#about" class="text-gray-300 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">About</a>
-                <a href="#experience" class="text-gray-300 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">Experience</a>
-                <a href="#skills" class="text-gray-300 hover:text-accent block px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                <a href="#contact" class="text-gray-300 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">Contact</a>
-            </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-card dark:bg-slate-900 absolute top-20 left-0 w-full shadow-lg">
+            <nav class="flex flex-col items-center py-4">
+                <a href="#about" class="py-2 text-primary dark:text-slate-300 hover:text-accent transition-colors font-medium">About</a>
+                <a href="#experience" class="py-2 text-primary dark:text-slate-300 hover:text-accent transition-colors font-medium">Experience</a>
+                <a href="#skills" class="py-2 text-primary dark:text-slate-300 hover:text-accent transition-colors font-medium">Skills</a>
+                <a href="#projects" class="py-2 text-primary dark:text-slate-300 hover:text-accent transition-colors font-medium">Projects</a>
+                <a href="#contact" class="py-2 text-primary dark:text-slate-300 hover:text-accent transition-colors font-medium">Contact</a>
+            </nav>
         </div>
     </header>
-    
-    <!-- Main Content -->
-    <main class="pt-24">
+
+    <main>
         <!-- Hero Section -->
-        <section id="hero" class="min-h-screen flex items-center justify-start text-left px-4 sm:px-8 md:px-16">
-            <div class="content-wrapper">
-                <p class="text-accent text-lg mb-4 fade-in" style="transition-delay: 100ms;">Hi, I am</p>
-                <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold text-gray-100 fade-in" style="transition-delay: 200ms;">Bhupal Bhattarai.</h1>
-                <p class="mt-6 max-w-xl text-lg text-gray-400 fade-in" style="transition-delay: 400ms;">
-                    A diligent and adaptable professional with a passion for technology, skilled in IT operations, public relations, and customer service. I thrive on learning new skills and contributing to team success.
-                </p>
-                <div class="mt-8 flex items-center space-x-6 fade-in" style="transition-delay: 500ms;">
-                    <a href="#contact" class="cta-button">Get In Touch</a>
-                    <div class="social-icons flex items-center space-x-4">
-                        <a href="https://facebook.com/officialbhupal" target="_blank" class="social-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                        <a href="https://twitter.com/officialbhupal" target="_blank" class="social-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
-                        <a href="https://instagram.com/officialbhupal" target="_blank" class="social-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                        <a href="tel:+9779817974297" class="social-icon" aria-label="Call"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
-                        <a href="mailto:contact@bhupalbhattarai.com.np" class="social-icon" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+        <section id="hero" class="relative min-h-screen flex items-center justify-start text-left pt-24 bg-cover bg-center bg-no-repeat" style="background-image: url('Image/hero-bg.jpg')">
+            <div class="absolute inset-0 bg-background/80 dark:bg-slate-950/80"></div>
+            <div class="container mx-auto px-4 sm:px-8 md:px-16 relative z-10">
+                <p class="text-accent text-lg mb-4 animate-fade-in-up">Hi, I am</p>
+                <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold text-primary dark:text-slate-50 font-roboto-slab animate-fade-in-up [animation-delay:200ms]">Bhupal Bhattarai.</h1>
+                <p id="hero-text" class="mt-6 max-w-xl text-lg text-secondary dark:text-slate-400 min-h-[5.25rem]"></p>
+                <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 animate-fade-in-up [animation-delay:600ms]">
+                    <a href="#contact" class="px-8 py-3 bg-accent text-white font-semibold rounded-md hover:bg-sky-600 transition-colors shadow-lg shadow-sky-500/20">Get In Touch</a>
+                    <div class="flex items-center space-x-4">
+                        <a href="https://facebook.com/officialbhupal" target="_blank" rel="noopener noreferrer" class="text-secondary dark:text-slate-400 hover:text-accent transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="https://twitter.com/officialbhupal" target="_blank" rel="noopener noreferrer" class="text-secondary dark:text-slate-400 hover:text-accent transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="https://instagram.com/officialbhupal" target="_blank" rel="noopener noreferrer" class="text-secondary dark:text-slate-400 hover:text-accent transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="tel:+9779817974297" class="text-secondary dark:text-slate-400 hover:text-accent transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+                        <a href="mailto:contact@bhupalbhattarai.com.np" class="text-secondary dark:text-slate-400 hover:text-accent transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-20 lg:py-32 px-4 bg-[#112240]">
-            <div class="content-wrapper mx-auto">
-                <h2 class="text-3xl font-bold mb-12 flex items-center fade-in">About Me<span class="h-px bg-gray-600 flex-grow ml-4"></span></h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                    <div class="text-gray-400 text-lg space-y-6 fade-in">
-                        <div>
-                            <p>Hello! I'm Bhupal. My journey into the tech world began in 2015 with a diploma in computer hardware, which sparked a long-standing passion for technology that continues to drive me. I thrive on challenges and am always eager to learn, take the lead, and contribute to a team's success.</p>
-                            <p class="mt-4">As a friendly and adaptable professional, my goal is to leverage my skills in IT operations and public relations to help a company achieve its objectives while I continue to grow professionally.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-100 mb-4">Outside of work...</h3>
-                            <p class="mt-4">When I'm not focused on my professional life, I'm a passionate creator and explorer. I love getting lost in a good book, expressing my thoughts through writing, and travelling to new places. I'm also a huge fan of cinema and enjoy watching movies and series. Music is a constant companion, and I find a creative outlet in sketching. This creativity also extends to my technical pursuits, where I enjoy:</p>
-                            <div class="flex flex-wrap gap-3 mt-4">
-                                <span class="hobby-tag">Web Development</span>
-                                <span class="hobby-tag">Frontend Designing</span>
-                                <span class="hobby-tag">Graphic Designing</span>
+        <section id="about" class="py-20 lg:py-32 bg-card dark:bg-slate-900">
+            <div class="container mx-auto px-4 sm:px-8 md:px-16">
+                <h2 class="text-3xl font-bold mb-16 text-center text-primary dark:text-slate-50 font-roboto-slab">About Me</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
+                    <div class="lg:col-span-2 flex justify-center items-center order-1 lg:order-2">
+                        <div class="relative w-full max-w-sm group">
+                            <div class="absolute -inset-2 border-2 border-accent/50 rounded-2xl transition-transform duration-300 ease-out group-hover:translate-x-1.5 group-hover:translate-y-1.5 pointer-events-none"></div>
+                            <div class="relative rounded-xl shadow-lg">
+                                <img src="Image/photo.png" alt="Bhupal Bhattarai" class="w-full h-auto rounded-xl" />
                             </div>
                         </div>
                     </div>
-                    <div class="about-image-container fade-in">
-                        <img src="Image/photo.png" alt="Bhupal Bhattarai" class="rounded-lg shadow-lg" onerror="this.onerror=null;this.src='https://placehold.co/400x500/e2e8f0/2d3748?text=Image+Not+Found';">
+                    <div class="lg:col-span-3 text-secondary dark:text-slate-400 text-lg lg:text-xl space-y-6 lg:space-y-8 order-2 lg:order-1">
+                        <div>
+                            <p class="text-justify">Hello! I'm Bhupal. My journey into the tech world began in 2015 with a diploma in computer hardware, which sparked a long-standing passion for technology that continues to drive me. I thrive on challenges and am always eager to learn, take the lead, and contribute to a team's success.</p>
+                            <p class="mt-4 text-justify">As a friendly and adaptable professional, my goal is to leverage my skills in IT operations and public relations to help a company achieve its objectives while I continue to grow professionally.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl lg:text-2xl font-semibold text-primary dark:text-slate-200 mb-4">Outside of work...</h3>
+                            <p class="text-justify">When I'm not focused on my professional life, I'm a passionate creator and explorer. I love getting lost in a good book, expressing my thoughts through writing, and travelling to new places. I'm also a huge fan of cinema and enjoy watching movies and series. Music is a constant companion, and I find a creative outlet in sketching.</p>
+                            <div class="flex flex-wrap gap-3 mt-4">
+                                <span class="bg-accent/10 text-accent font-medium px-3 py-1 rounded-full text-sm lg:text-base">Web Development</span>
+                                <span class="bg-accent/10 text-accent font-medium px-3 py-1 rounded-full text-sm lg:text-base">Frontend Designing</span>
+                                <span class="bg-accent/10 text-accent font-medium px-3 py-1 rounded-full text-sm lg:text-base">Graphic Designing</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="py-20 lg:py-32 px-4">
-            <div class="content-wrapper mx-auto">
-                <h2 class="text-3xl font-bold mb-16 text-center fade-in">Work Experience</h2>
-                <div class="timeline-container">
-                    <!-- Timeline Item 1 -->
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-logo">
-                            <img src="Image/asialink.jpg" alt="ASIALINK SERVICES PVT. LTD. Logo">
+        <section id="experience" class="py-20 lg:py-32">
+            <div class="container mx-auto px-4 sm:px-8 md:px-16">
+                <h2 class="text-3xl font-bold mb-16 text-center text-primary dark:text-slate-50 font-roboto-slab">Work Experience</h2>
+                <div class="relative max-w-3xl mx-auto">
+                    <div class="absolute left-12 top-0 h-full w-0.5 bg-slate-200 dark:bg-slate-700"></div>
+                    <div class="space-y-12">
+                        <!-- Experience Item 1 -->
+                        <div class="relative flex items-start group">
+                            <div class="flex-shrink-0 w-24 h-24 bg-white dark:bg-slate-700 rounded-xl shadow-md flex items-center justify-center z-10 border-2 border-slate-200 dark:border-slate-600">
+                                <img src="Image/asialink.jpg" alt="ASIALINK Logo" class="h-16 w-16 object-contain rounded-lg" />
+                            </div>
+                            <div class="ml-8 p-6 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 flex-grow transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+                                <h3 class="text-xl font-semibold text-primary dark:text-slate-50">Documentation Department Head</h3>
+                                <p class="text-accent mb-2">ASIALINK SERVICES PVT. LTD. | <span class="text-secondary dark:text-slate-400">April 2025 - Present</span></p>
+                                <ul class="list-disc list-inside text-secondary dark:text-slate-400 space-y-2 mt-3">
+                                    <li>Leading and mentoring a team of 5 documentation specialists.</li>
+                                    <li>Overseeing the creation, review, and management of all client-facing and internal documentation.</li>
+                                    <li>Developing and implementing new strategies and workflows to improve departmental efficiency.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="timeline-content">
-                            <h3 class="text-xl font-semibold text-gray-100">Documentation Department Head</h3>
-                            <p class="text-accent mb-2">ASIALINK SERVICES PVT. LTD. | <span class="text-gray-400">April 2025 - Present</span></p>
-                            <ul class="list-disc list-inside text-gray-400 space-y-2">
-                                <li>Leading and mentoring a team of 5 documentation specialists.</li>
-                                <li>Overseeing the creation, review, and management of all client-facing and internal documentation.</li>
-                                <li>Developing and implementing new strategies and workflows to improve departmental efficiency.</li>
-                            </ul>
+                        <!-- Experience Item 2 -->
+                        <div class="relative flex items-start group">
+                            <div class="flex-shrink-0 w-24 h-24 bg-white dark:bg-slate-700 rounded-xl shadow-md flex items-center justify-center z-10 border-2 border-slate-200 dark:border-slate-600">
+                                <img src="Image/ctfnepal.jpg" alt="CTF Nepal Logo" class="h-16 w-16 object-contain rounded-lg" />
+                            </div>
+                            <div class="ml-8 p-6 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 flex-grow transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+                                <h3 class="text-xl font-semibold text-primary dark:text-slate-50">IT Officer</h3>
+                                <p class="text-accent mb-2">Nepal Career Training Foundation | <span class="text-secondary dark:text-slate-400">April 2021 - Nov 2023</span></p>
+                                <ul class="list-disc list-inside text-secondary dark:text-slate-400 space-y-2 mt-3">
+                                    <li>Managed and maintained four key training databases: EVENT-II, SAMRIDDHI, NSTB, and FEB TMIS.</li>
+                                    <li>Streamlined document management processes, including organization, updates, and storage for efficient information retrieval.</li>
+                                    <li>Provided comprehensive technical support to all staff and conducted routine data backups and recovery.</li>
+                                    <li>Facilitated clear communication and collaboration between instructors and program participants.</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Timeline Item 2 -->
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-logo">
-                            <img src="Image/ctfnepal.jpg" alt="Nepal Career Training Foundation Logo">
+                        <!-- Experience Item 3 -->
+                        <div class="relative flex items-start group">
+                            <div class="flex-shrink-0 w-24 h-24 bg-white dark:bg-slate-700 rounded-xl shadow-md flex items-center justify-center z-10 border-2 border-slate-200 dark:border-slate-600">
+                                <img src="Image/futureemployment.jpg" alt="Future Employment Logo" class="h-16 w-16 object-contain rounded-lg" />
+                            </div>
+                            <div class="ml-8 p-6 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 flex-grow transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+                                <h3 class="text-xl font-semibold text-primary dark:text-slate-50">Public Relation Officer</h3>
+                                <p class="text-accent mb-2">Future Employment Service | <span class="text-secondary dark:text-slate-400">Aug 2019 - Mar 2020</span></p>
+                                <ul class="list-disc list-inside text-secondary dark:text-slate-400 space-y-2 mt-3">
+                                    <li>Developed and executed strategies to maintain a positive public image for the company.</li>
+                                    <li>Cultivated and managed relationships with clients, job seekers, and key industry stakeholders.</li>
+                                    <li>Organized and promoted successful recruitment drives and client appreciation events.</li>
+                                    <li>Authored company communications and effectively managed public-facing inquiries.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="timeline-content">
-                            <h3 class="text-xl font-semibold text-gray-100">IT Officer</h3>
-                            <p class="text-accent mb-2">Nepal Career Training Foundation | <span class="text-gray-400">April 2021 - Nov 2023</span></p>
-                            <ul class="list-disc list-inside text-gray-400 space-y-2">
-                                <li>Managed and maintained four key training databases: EVENT-II, SAMRIDDHI, NSTB, and FEB TMIS.</li>
-                                <li>Streamlined document management processes, including organization, updates, and storage for efficient information retrieval.</li>
-                                <li>Provided comprehensive technical support to all staff and conducted routine data backups and recovery.</li>
-                                <li>Facilitated clear communication and collaboration between instructors and program participants.</li>
-                            </ul>
+                        <!-- Experience Item 4 -->
+                        <div class="relative flex items-start group">
+                            <div class="flex-shrink-0 w-24 h-24 bg-white dark:bg-slate-700 rounded-xl shadow-md flex items-center justify-center z-10 border-2 border-slate-200 dark:border-slate-600">
+                                <img src="Image/focusnepal.jpg" alt="Focus Nepal Logo" class="h-16 w-16 object-contain rounded-lg" />
+                            </div>
+                            <div class="ml-8 p-6 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 flex-grow transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+                                <h3 class="text-xl font-semibold text-primary dark:text-slate-50">Computer Operator</h3>
+                                <p class="text-accent mb-2">Focus Nepal Overseas | <span class="text-secondary dark:text-slate-400">July 2016 - July 2019</span></p>
+                                <ul class="list-disc list-inside text-secondary dark:text-slate-400 space-y-2 mt-3">
+                                    <li>Oversaw the handling of client passports and maintained meticulous, confidential records.</li>
+                                    <li>Managed daily office communications and the secure processing of client documents for international placement.</li>
+                                    <li>Served as the primary liaison for client inquiries regarding document processing and status updates.</li>
+                                    <li>Collaborated with senior officers to ensure efficient document forwarding and processing.</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Timeline Item 3 -->
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-logo">
-                            <img src="Image/futureemployment.jpg" alt="Future Employment Service Logo">
-                        </div>
-                        <div class="timeline-content">
-                            <h3 class="text-xl font-semibold text-gray-100">Public Relation Officer</h3>
-                            <p class="text-accent mb-2">Future Employment Service | <span class="text-gray-400">Aug 2019 - Mar 2020</span></p>
-                            <ul class="list-disc list-inside text-gray-400 space-y-2">
-                                <li>Developed and executed strategies to maintain a positive public image for the company.</li>
-                                <li>Cultivated and managed relationships with clients, job seekers, and key industry stakeholders.</li>
-                                <li>Organized and promoted successful recruitment drives and client appreciation events.</li>
-                                <li>Authored company communications and effectively managed public-facing inquiries.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Timeline Item 4 -->
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-logo">
-                            <img src="Image/focusnepal.jpg" alt="Focus Nepal Overseas Logo">
-                        </div>
-                        <div class="timeline-content">
-                            <h3 class="text-xl font-semibold text-gray-100">Computer Operator</h3>
-                            <p class="text-accent mb-2">Focus Nepal Overseas | <span class="text-gray-400">July 2016 - July 2019</span></p>
-                            <ul class="list-disc list-inside text-gray-400 space-y-2">
-                                <li>Oversaw the handling of client passports and maintained meticulous, confidential records.</li>
-                                <li>Managed daily office communications and the secure processing of client documents for international placement.</li>
-                                <li>Served as the primary liaison for client inquiries regarding document processing and status updates.</li>
-                                <li>Collaborated with senior officers to ensure efficient document forwarding and processing.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Timeline Item 5 -->
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-logo">
-                           <img src="Image/communityecenter.jpg" alt="Community e-Center Jhapa Logo">
-                        </div>
-                        <div class="timeline-content">
-                            <h3 class="text-xl font-semibold text-gray-100">Computer Trainer</h3>
-                            <p class="text-accent mb-2">Community e-Center Jhapa | <span class="text-gray-400">Jan 2015 - Mar 2016</span></p>
-                            <ul class="list-disc list-inside text-gray-400 space-y-2">
-                                <li>Designed and delivered engaging lesson plans based on defined course objectives.</li>
-                                <li>Utilized Microsoft Office and modern e-Learning tools to conduct effective, hands-on training sessions.</li>
-                                <li>Recognized for presenting complex information clearly and concisely, consistently earning positive student evaluations.</li>
-                            </ul>
+                        <!-- Experience Item 5 -->
+                        <div class="relative flex items-start group">
+                            <div class="flex-shrink-0 w-24 h-24 bg-white dark:bg-slate-700 rounded-xl shadow-md flex items-center justify-center z-10 border-2 border-slate-200 dark:border-slate-600">
+                                <img src="Image/communityecenter.jpg" alt="Community E-Center Logo" class="h-16 w-16 object-contain rounded-lg" />
+                            </div>
+                            <div class="ml-8 p-6 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 flex-grow transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+                                <h3 class="text-xl font-semibold text-primary dark:text-slate-50">Computer Trainer</h3>
+                                <p class="text-accent mb-2">Community e-Center Jhapa | <span class="text-secondary dark:text-slate-400">Jan 2015 - Mar 2016</span></p>
+                                <ul class="list-disc list-inside text-secondary dark:text-slate-400 space-y-2 mt-3">
+                                    <li>Designed and delivered engaging lesson plans based on defined course objectives.</li>
+                                    <li>Utilized Microsoft Office and modern e-Learning tools to conduct effective, hands-on training sessions.</li>
+                                    <li>Recognized for presenting complex information clearly and concisely, consistently earning positive student evaluations.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -204,30 +351,147 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-20 lg:py-32 bg-[#112240] px-4">
-            <div class="content-wrapper mx-auto">
-                <h2 class="text-3xl font-bold mb-16 text-center fade-in">Skills & Strengths</h2>
-                <div class="skills-container">
-                    <div class="skills-category fade-in">
-                        <h3 class="text-2xl font-semibold text-center mb-8 text-accent">Professional Strengths</h3>
-                        <div class="icon-container">
-                            <div class="icon-box"><i class="fas fa-headset"></i><div class="icon-label">Customer Service</div></div>
-                            <div class="icon-box"><i class="fas fa-comments"></i><div class="icon-label">Communication</div></div>
-                            <div class="icon-box"><i class="fas fa-users"></i><div class="icon-label">Teamwork</div></div>
-                            <div class="icon-box"><i class="fas fa-lightbulb"></i><div class="icon-label">Problem Solving</div></div>
-                            <div class="icon-box"><i class="fas fa-random"></i><div class="icon-label">Adaptability</div></div>
-                            <div class="icon-box"><i class="fas fa-microphone-alt"></i><div class="icon-label">Public Speaking</div></div>
+        <section id="skills" class="py-20 lg:py-32 bg-card dark:bg-slate-900">
+            <div class="container mx-auto px-4 sm:px-8 md:px-16">
+                <h2 class="text-3xl font-bold mb-16 text-center text-primary dark:text-slate-50 font-roboto-slab">Skills & Strengths</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-center mb-8 text-primary dark:text-slate-50">Professional Strengths</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                            <!-- Strength Card -->
+                            <div class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">Customer Service</div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M4 16h14l4 4V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2zM15 9h-2V7h2v2zm-4 0H9V7h2v2zm-4 0H5V7h2v2z"/></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">Communication</div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">Teamwork</div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">Problem Solving</div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M0 0h24v24H0z" fill="none"/><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">Adaptability</div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.49 6-3.31 6-6.72h-1.7z"/></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">Public Speaking</div>
+                            </div>
                         </div>
                     </div>
-                     <div class="skills-category fade-in">
-                        <h3 class="text-2xl font-semibold text-center mb-8 text-accent">Technical Skills</h3>
-                        <div class="icon-container">
-                            <div class="icon-box"><i class="fab fa-html5"></i><div class="icon-label">HTML</div></div>
-                            <div class="icon-box"><i class="fab fa-css3-alt"></i><div class="icon-label">CSS</div></div>
-                            <div class="icon-box"><i class="fab fa-js-square"></i><div class="icon-label">JavaScript</div></div>
-                            <div class="icon-box"><i class="fab fa-wordpress"></i><div class="icon-label">WordPress</div></div>
-                            <div class="icon-box"><i class="fab fa-google"></i><div class="icon-label">Google Workspace</div></div>
-                            <div class="icon-box"><div class="photoshop-icon">Ps</div><div class="icon-label">Photoshop</div></div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-center mb-8 text-primary dark:text-slate-50">Technical Skills</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                            <!-- Skill Card -->
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4l-2 14.5l-6 2l-6 -2l-2 -14.5z" /><path d="M15.5 8h-7l.5 4h6l-.5 4l-2.5 1l-2.5 -1l-.5 -4h-2l1 5l4 2l4 -2l1 -5z" /></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">HTML</div>
+                            </a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4l-2 14.5l-6 2l-6 -2l-2 -14.5z" /><path d="M8.5 8h7l-4.5 4h4l-.5 3.5l-2.5 .75l-2.5 -.75l-.5 -4h-2l1 5l4 2l4 -2l1 -5z" /></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">CSS</div>
+                            </a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4l-2 14.5l-6 2l-6 -2l-2 -14.5z" /><path d="M7.5 8h3v8l-2 -1" /><path d="M16.5 8h-2.5a.5 .5 0 0 0 -.5 .5v3a.5 .5 0 0 0 .5 .5h1.5a.5 .5 0 0 1 .5 .5v3a.5 .5 0 0 1 -.5 .5h-2.5" /></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">JavaScript</div>
+                            </a>
+                            <a href="https://wordpress.org" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.05-.176 2.986-.502l-2.828-7.703zm-7.125 1.33c0-1.512.271-2.96.764-4.303l4.799 13.174c-3.146-1.318-5.563-4.313-5.563-7.871zm7.623-12.712c-6.393 0-11.615 5.222-11.615 11.615 0 .671.059 1.327.171 1.965l3.562-9.72c.433-1.268 1.492-1.455 1.492-1.455h.027c0 .009-.013.014-.013.014s1.1.01 1.1.01c.754.01 1.394.161 1.394.161s-.701.164-1.488.164c-1.1 0-2.498-1.512-2.498-1.512l6.148 16.823 3.18-9.354c.441-1.266 1.491-1.457 1.491-1.457h.027c0 .008-.013.013-.013.013s1.1.011 1.1.011c.754.01 1.394.162 1.394.162s-.701.164-1.488.164c-1.1 0-2.498-1.511-2.498-1.511l3.014 8.29c.307-.942.472-1.941.472-2.98 0-6.393-5.222-11.615-11.615-11.615zm7.326 12.02c.151.433.232.895.232 1.373 0 1.581-.77 2.985-1.96 3.845l-2.824-8.082c1.156.333 2.126 1.13 2.552 2.864z"/></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">WordPress</div>
+                            </a>
+                            <a href="https://www.python.org" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M11.92 0C8.507 0 5.603 2.344 5.603 5.238v2.611h6.422V8.73H3.616C1.623 8.73 0 10.224 0 12.065v4.361c0 1.84 1.623 3.335 3.616 3.335h2.411v-3.335c0-2.527 2.098-4.59 4.683-4.59h6.422v-2.611c0-2.894-2.903-5.238-6.317-5.238H8.411c-.402 0-.724.322-.724.724 0 .402.322.724.724.724h2.411c2.585 0 4.683 2.063 4.683 4.59v.724H5.603c-1.993 0-3.616 1.494-3.616 3.335v4.361c0 1.84 1.623 3.335 3.616 3.335h2.411v-2.611c0-2.527 2.098-4.59 4.683-4.59h6.422c1.993 0 3.616-1.494 3.616-3.335V12.065c0-1.84-1.623-3.335-3.616-3.335h-2.411V5.238C21.326 2.344 18.422 0 15.009 0h-3.089zm-2.211 1.811c.664 0 1.206.542 1.206 1.206 0 .664-.542 1.206-1.206 1.206-.664 0-1.206-.542-1.206-1.206 0-.664.542-1.206 1.206-1.206zm7.222 17.378c.664 0 1.206.542 1.206 1.206 0 .664-.542 1.206-1.206 1.206-.664 0-1.206-.542-1.206-1.206 0-.664.542-1.206 1.206-1.206z"/></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">Python</div>
+                            </a>
+                            <a href="https://www.adobe.com/products/photoshop.html" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0v24h24V0H0zm6.65 15.64V8.45h3.04c1.76 0 2.65.86 2.65 2.58 0 1.83-.98 2.69-2.78 2.69h-1.3v1.92H6.65zm1.61-3.24h1.16c.86 0 1.27-.39 1.27-1.18 0-.75-.41-1.14-1.27-1.14h-1.16v2.32zm9.1 3.35c-1.78 0-2.67-.88-2.67-2.63h1.58c0 .94.41 1.34 1.12 1.34.58 0 .91-.32.91-.77 0-.41-.26-.64-.98-.88l-.75-.24c-1.39-.45-1.92-1.09-1.92-2.14 0-1.5 1.01-2.29 2.58-2.29 1.54 0 2.5.75 2.5 2.22h-1.58c0-.8-.37-1.14-1.01-1.14-.52 0-.84.26-.84.69 0 .37.26.58.91.79l.75.24c1.46.47 2.06 1.05 2.06 2.24 0 1.63-1.01 2.56-2.66 2.56z"/></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">Photoshop</div>
+                            </a>
+                            <a href="https://workspace.google.com" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.788 5.108a9 9 0 1 0 3.212 6.892h-8" /></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">Google Workspace</div>
+                            </a>
+                            <a href="https://react.dev" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="4" /><ellipse cx="12" cy="12" rx="4" ry="10" /><circle cx="12" cy="12" r="1" /></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">React</div>
+                            </a>
+                            <div class="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-accent group">
+                                <div class="text-accent mb-4 transition-transform duration-300 group-hover:scale-110">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6l3-4" /><path d="M6 6l3-4" /><path d="M10 6l3-4" /><path d="M14 6l3-4" /><path d="M18 6l3-4" /><path d="M2 6h20v16H2z" /><path d="M6 12h4" /><path d="M14 12h4" /><path d="M6 16h12" /></svg>
+                                </div>
+                                <div class="text-primary dark:text-slate-50 font-medium text-center">Video Editing</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 lg:py-32">
+            <div class="container mx-auto px-4 sm:px-8 md:px-16">
+                <h2 class="text-3xl font-bold mb-12 text-center text-primary dark:text-slate-50 font-roboto-slab">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Project Card 1 -->
+                    <a href="https://rpagriculture.com.np" target="_blank" rel="noopener noreferrer" class="block bg-card dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group overflow-hidden">
+                        <div class="relative bg-white dark:bg-slate-900">
+                            <img src="https://rpagriculture.com.np/image/logo.png" alt="RP AGRICULTURE STORE" class="w-full h-48 object-contain p-4 transition-transform duration-300 group-hover:scale-105" referrerPolicy="no-referrer" />
+                        </div>
+                        <div class="p-6">
+                            <header class="flex justify-between items-center mb-3">
+                                <h3 class="text-xl font-semibold text-primary dark:text-slate-50 font-roboto-slab">RP AGRICULTURE STORE</h3>
+                                <span class="text-secondary dark:text-slate-400 group-hover:text-accent transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                </span>
+                            </header>
+                            <p class="text-secondary dark:text-slate-400 line-clamp-3">RP Agriculture Store is a latest store in Kamal Rural Municipality, Jhapa, Nepal. It provides various agricultural product.</p>
+                        </div>
+                    </a>
+                    <!-- Project Card 2 -->
+                    <div class="block bg-card dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group overflow-hidden opacity-75">
+                        <div class="relative bg-white dark:bg-slate-900 flex items-center justify-center h-48">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-slate-300 dark:text-slate-600"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                        </div>
+                        <div class="p-6">
+                            <header class="flex justify-between items-center mb-3">
+                                <h3 class="text-xl font-semibold text-primary dark:text-slate-50 font-roboto-slab">Project-2</h3>
+                                <span class="px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-medium rounded">Under Maintenance</span>
+                            </header>
+                            <p class="text-secondary dark:text-slate-400 line-clamp-3">This project is currently under maintenance and will be available soon. Stay tuned for updates!</p>
                         </div>
                     </div>
                 </div>
@@ -235,50 +499,291 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 lg:py-32 px-4">
-            <div class="content-wrapper mx-auto">
-                <h2 class="text-3xl font-bold mb-12 text-center fade-in">Contact Me</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-                    <div class="contact-info fade-in">
-                        <h3 class="text-2xl font-semibold text-gray-100">Bhupal Bhattarai</h3>
-                        <p class="text-gray-400 mt-2">Kamal Rural Municipality-01, Jhapa, Nepal</p>
-                        <p class="text-gray-400 mt-4">Feel free to get in touch. I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
-                        <div class="social-icons flex items-center space-x-4 mt-6">
-                            <a href="https://facebook.com/officialbhupal" target="_blank" class="social-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                            <a href="https://twitter.com/officialbhupal" target="_blank" class="social-icon" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
-                            <a href="https://instagram.com/officialbhupal" target="_blank" class="social-icon" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                            <a href="tel:+9779817974297" class="social-icon" aria-label="Call"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
-                            <a href="mailto:contact@bhupalbhattarai.com.np" class="social-icon" aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+        <section id="contact" class="py-20 lg:py-32 bg-card dark:bg-slate-900">
+            <div class="container mx-auto px-4 sm:px-8 md:px-16">
+                <h2 class="text-3xl font-bold mb-12 text-center text-primary dark:text-slate-50 font-roboto-slab">Contact Me</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start max-w-5xl mx-auto">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary dark:text-slate-50">Bhupal Bhattarai</h3>
+                        <p class="text-secondary dark:text-slate-400 mt-2">Kamal Rural Municipality-01, Jhapa, Nepal</p>
+                        <p class="text-secondary dark:text-slate-400 mt-4">Feel free to get in touch. I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+                        <div class="mt-8 flex items-center space-x-4">
+                            <a href="https://facebook.com/officialbhupal" target="_blank" rel="noopener noreferrer" class="text-secondary dark:text-slate-400 hover:text-accent transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                            <a href="https://twitter.com/officialbhupal" target="_blank" rel="noopener noreferrer" class="text-secondary dark:text-slate-400 hover:text-accent transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                            <a href="https://instagram.com/officialbhupal" target="_blank" rel="noopener noreferrer" class="text-secondary dark:text-slate-400 hover:text-accent transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                            <a href="tel:+9779817974297" class="text-secondary dark:text-slate-400 hover:text-accent transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+                            <a href="mailto:contact@bhupalbhattarai.com.np" class="text-secondary dark:text-slate-400 hover:text-accent transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
                         </div>
                     </div>
-                    <form id="contact-form" class="fade-in">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <input type="text" name="name" placeholder="Your Name" class="form-input" required>
-                            <input type="email" name="email" placeholder="Your Email" class="form-input" required>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-primary dark:text-slate-50" required />
+                            <input type="email" name="email" placeholder="Your Email" class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-primary dark:text-slate-50" required />
                         </div>
-                        <div class="mt-6">
-                            <input type="text" name="subject" placeholder="Subject" class="form-input" required>
-                        </div>
-                        <div class="mt-6">
-                            <textarea name="message" placeholder="Your Message" rows="5" class="form-input" required></textarea>
-                        </div>
-                        <div class="mt-8">
-                            <button type="submit" class="cta-button">Send Message</button>
+                        <input type="text" name="subject" placeholder="Subject" class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-primary dark:text-slate-50" required />
+                        <textarea name="message" placeholder="Your Message" rows="5" class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-primary dark:text-slate-50" required></textarea>
+                        <div class="flex items-center justify-between min-h-[48px]">
+                            <button type="submit" class="px-8 py-3 bg-accent text-white font-semibold rounded-md hover:bg-sky-600 transition-colors shadow-lg shadow-sky-500/20 disabled:bg-sky-400">Send Message</button>
+                            <p id="form-status" class="text-sm text-right"></p>
                         </div>
                     </form>
-                 </div>
-                 <p id="form-status" class="mt-6 text-center"></p>
+                </div>
             </div>
         </section>
     </main>
-    
-    <footer class="py-6 text-center bg-[#112240]">
-        <p class="text-gray-500 text-sm">
-            &copy; 2025 <a href="#hero" class="hover:text-accent">Bhupal Bhattarai</a>. All Rights Reserved | <a href="privacy-policy.html" class="hover:text-accent">Privacy Policy</a>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center bg-background/80 dark:bg-slate-950/80 backdrop-blur-lg border-t border-slate-200/50 dark:border-slate-800/50">
+        <p class="text-secondary dark:text-slate-400 text-sm space-x-2">
+            <span>&copy; <span id="current-year"></span> <a href="#hero" class="hover:text-accent font-medium">Bhupal Bhattarai</a>. All Rights Reserved</span>
+            <span class="hidden sm:inline">|</span>
+            <button id="open-privacy" class="hover:text-accent focus:outline-none">Privacy Policy</button>
+            <span>|</span>
+            <button id="open-terms" class="hover:text-accent focus:outline-none">Terms & Conditions</button>
         </p>
     </footer>
 
-    <!-- Custom JavaScript -->
-    <script src="script.js"></script>
+    <!-- Modals -->
+    <div id="modal-overlay" class="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div id="privacy-modal" class="bg-white dark:bg-slate-900 w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl overflow-hidden hidden flex flex-col">
+            <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-primary dark:text-slate-50 font-roboto-slab">Privacy Policy</h2>
+                <button class="close-modal p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            <div class="p-8 overflow-y-auto prose dark:prose-invert max-w-none">
+                <p><strong>Last updated:</strong> <span class="modal-date"></span></p>
+                <p>Bhupal Bhattarai operates the website located at bhupalbhattarai.com.np (the "Site"). This page informs you of our policies regarding the collection, use, and disclosure of personal information we receive from users of the Site.</p>
+                <h3>1. Information Collection and Use</h3>
+                <p>This is a static personal website. We do not require you to create an account or provide any personal information to browse the site. The only point of data collection is through the contact form.</p>
+                <ul>
+                    <li><strong>Contact Form:</strong> If you choose to contact me through the contact form, you will be asked to provide your name, email address, and a message. This information is used solely to respond to your inquiry. It is not stored in a database, sold, or used for marketing purposes.</li>
+                </ul>
+                <h3>2. Cookies and Local Storage</h3>
+                <p>This site does not use cookies for tracking purposes.</p>
+                <p>We use your browser's <code>localStorage</code> functionality for one specific purpose: to remember your preferred theme (light, dark, or system). This is a user-experience feature and does not track you across sites or sessions in a personally identifiable way.</p>
+                <h3>3. Third-Party Services</h3>
+                <p>This website is self-contained and does not utilize any third-party services for analytics, advertising, or data collection. All content and scripts are hosted directly.</p>
+                <h3>4. Log Data</h3>
+                <p>Like many site operators, the hosting provider may collect information that your browser sends whenever you visit our Site ("Log Data"). This Log Data may include information such as your computer's IP address, browser type, browser version, the pages of our Site that you visit, the time and date of your visit, the time spent on those pages, and other statistics.</p>
+                <h3>5. Security</h3>
+                <p>The security of your Personal Information is important to us, but remember that no method of transmission over the Internet, or method of electronic storage, is 100% secure.</p>
+                <h3>6. Links to Other Sites</h3>
+                <p>Our Site contains links to other sites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.</p>
+                <h3>7. Changes to This Privacy Policy</h3>
+                <p>This Privacy Policy is effective as of the "last updated" date and will remain in effect except with respect to any changes in its provisions in the future. We reserve the right to update or change our Privacy Policy at any time.</p>
+                <h3>8. Contact Us</h3>
+                <p>If you have any questions about this Privacy Policy, please contact me via the contact form on the main page.</p>
+            </div>
+        </div>
+
+        <div id="terms-modal" class="bg-white dark:bg-slate-900 w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl overflow-hidden hidden flex flex-col">
+            <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-primary dark:text-slate-50 font-roboto-slab">Terms and Conditions</h2>
+                <button class="close-modal p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+            <div class="p-8 overflow-y-auto prose dark:prose-invert max-w-none">
+                <p><strong>Last updated:</strong> <span class="modal-date"></span></p>
+                <p>Please read these Terms and Conditions ("Terms") carefully before using the website located at bhupalbhattarai.com.np (the "Site") operated by Bhupal Bhattarai.</p>
+                <p>Your access to and use of the Site is conditioned upon your acceptance of and compliance with these Terms. These Terms apply to all visitors, users, and others who wish to access or use the Site.</p>
+                <h3>1. Intellectual Property</h3>
+                <p>The Site and its original content, features, and functionality are and will remain the exclusive property of Bhupal Bhattarai. The content, including but not limited to text, graphics, logos, and images, is protected by copyright and other laws.</p>
+                <h3>2. Use of the Site</h3>
+                <p>You agree not to use the Site in any way that violates any applicable national or international law or regulation, or for the purpose of exploiting, harming, or attempting to exploit or harm minors in any way.</p>
+                <h3>3. Disclaimer of Warranty</h3>
+                <p>The Site is provided on an "AS IS" and "AS AVAILABLE" basis. I make no warranties, expressed or implied, regarding the operation of my Site or the information, content, or materials included therein.</p>
+                <h3>4. Limitation of Liability</h3>
+                <p>In no event shall Bhupal Bhattarai be liable for any direct, indirect, incidental, special, consequential or punitive damages resulting from your access to or use of or inability to access or use the Site.</p>
+                <h3>5. Links to Other Websites</h3>
+                <p>My Site may contain links to third-party websites or services that are not owned or controlled by me. I have no control over, and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services.</p>
+                <h3>6. Changes to These Terms</h3>
+                <p>I reserve the right, at my sole discretion, to modify or replace these Terms at any time. If a revision is material, I will provide a notice by updating the "Last updated" date of these Terms.</p>
+                <h3>7. Contact Me</h3>
+                <p>If you have any questions about these Terms, please contact me via the contact form on the main page.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll To Top -->
+    <button id="scroll-to-top" class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-accent text-white shadow-lg transition-all duration-300 opacity-0 translate-y-4 pointer-events-none hover:bg-sky-600 hover:scale-110" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" /></svg>
+    </button>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    
+    const updateThemeIcons = (theme) => {
+        if (theme === 'dark') {
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        } else {
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        }
+    };
+
+    // Initialize theme from localStorage or system preference
+    const getInitialTheme = () => {
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            return 'dark';
+        }
+        return 'light';
+    };
+
+    let currentTheme = getInitialTheme();
+    updateThemeIcons(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        currentTheme = isDark ? 'dark' : 'light';
+        localStorage.setItem('theme', currentTheme);
+        updateThemeIcons(currentTheme);
+    });
+
+    // Mobile Menu Logic
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconPath = document.getElementById('menu-icon-path');
+
+    if (menuToggle && mobileMenu && menuIconPath) {
+        menuToggle.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            if (!isHidden) {
+                menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                menuIconPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+            }
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIconPath.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+            });
+        });
+    }
+
+    // Header Scroll Effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('shadow-md');
+        } else {
+            header.classList.remove('shadow-md');
+        }
+    });
+
+    // Typing Animation for Hero Section
+    const heroText = document.getElementById('hero-text');
+    if (heroText) {
+        const fullText = "A diligent and adaptable professional with a passion for technology, skilled in IT operations, public relations, and customer service. I thrive on learning new skills and contributing to team success.";
+        let charIndex = 0;
+        
+        setTimeout(() => {
+            const typingInterval = setInterval(() => {
+                if (charIndex < fullText.length) {
+                    heroText.textContent += fullText.charAt(charIndex);
+                    charIndex++;
+                } else {
+                    clearInterval(typingInterval);
+                }
+            }, 20);
+        }, 300);
+    }
+
+    // Scroll To Top Button Logic
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            scrollToTopBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+        } else {
+            scrollToTopBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Contact Form Submission (Demo Mode)
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        const formStatus = document.getElementById('form-status');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            formStatus.textContent = '';
+
+            // Simulate a successful send for demo purposes
+            setTimeout(() => {
+                formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+                formStatus.className = 'text-sm text-right text-green-600 dark:text-green-400';
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+
+                setTimeout(() => {
+                    formStatus.textContent = '';
+                }, 6000);
+            }, 1500);
+        });
+    }
+
+    // Modal Logic
+    const modalOverlay = document.getElementById('modal-overlay');
+    const privacyModal = document.getElementById('privacy-modal');
+    const termsModal = document.getElementById('terms-modal');
+    const openPrivacyBtn = document.getElementById('open-privacy');
+    const openTermsBtn = document.getElementById('open-terms');
+    const closeButtons = document.querySelectorAll('.close-modal');
+    const modalDates = document.querySelectorAll('.modal-date');
+
+    if (modalOverlay && privacyModal && termsModal) {
+        const formattedDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        modalDates.forEach(dateSpan => dateSpan.textContent = formattedDate);
+
+        const openModal = (modal) => {
+            modalOverlay.classList.remove('hidden');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        };
+
+        const closeModal = () => {
+            modalOverlay.classList.add('hidden');
+            privacyModal.classList.add('hidden');
+            termsModal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        };
+
+        if (openPrivacyBtn) openPrivacyBtn.addEventListener('click', () => openModal(privacyModal));
+        if (openTermsBtn) openTermsBtn.addEventListener('click', () => openModal(termsModal));
+
+        closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeModal();
+        });
+    }
+
+    // Update Copyright Year
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
+});
+    </script>
 </body>
 </html>
